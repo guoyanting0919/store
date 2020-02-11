@@ -11,11 +11,13 @@
     padding: 20px;
   }
 
-  .aboutBgR {
+  .aboutBgR,
+  .aboutBgB,
+  .aboutBgY,
+  .aboutBgG {
     @include size(100%);
     position: relative;
     overflow: hidden;
-
     //手機
     @include phone-width {
       margin: 0;
@@ -24,9 +26,14 @@
     &::before {
       @include size(85%, 100%);
       content: '';
-      background-color: #dbb6b6;
       position: absolute;
       top: 10%;
+    }
+  }
+
+  .aboutBgR {
+    &::before {
+      background-color: #dbb6b6;
       right: 40px;
       //手機
       @include phone-width {
@@ -36,20 +43,34 @@
   }
 
   .aboutBgB {
-    @include size(100%);
-    position: relative;
-    overflow: hidden;
-
     &::before {
-      @include size(85%, 100%);
-      content: '';
       background-color: #bdc3ce;
-      position: absolute;
-      top: 10%;
       left: 40px;
       //手機
       @include phone-width {
         left: -20px;
+      }
+    }
+  }
+
+  .aboutBgG {
+    &::before {
+      background-color: #baceb7;
+      left: 40px;
+      //手機
+      @include phone-width {
+        left: -20px;
+      }
+    }
+  }
+
+  .aboutBgY {
+    &::before {
+      background-color: #eeeea0;
+      right: 40px;
+      //手機
+      @include phone-width {
+        right: -20px;
       }
     }
   }
@@ -85,6 +106,14 @@
 
   .aboutStoreImg2 {
     background-image: url('./assets/images/aboutStoreImg02.jpg');
+  }
+
+  .aboutStoreImg3 {
+    background-image: url('./assets/images/aboutStoreImg03.jpg');
+  }
+
+  .aboutStoreImg4 {
+    background-image: url('./assets/images/aboutStoreImg04.jpg');
   }
 
   .detailMt {
@@ -136,6 +165,35 @@
 
   .detailImg6 {
     background-image: url('./assets/images/aboutStoreImg02-3.jpg');
+  }
+  .detailImg7 {
+    background-image: url('./assets/images/aboutStoreImg03-1.jpg');
+    background-position: center center;
+    //手機
+    @include phone-width {
+      margin-top: 10px;
+    }
+  }
+  .detailImg8 {
+    background-image: url('./assets/images/aboutStoreImg03-2.jpg');
+    background-position: center center;
+  }
+  .detailImg9 {
+    background-image: url('./assets/images/aboutStoreImg03-3.jpg');
+    background-position: center center;
+  }
+  .detailImg10 {
+    background-image: url('./assets/images/aboutStoreImg04-1.jpg');
+    //手機
+    @include phone-width {
+      margin-top: 10px;
+    }
+  }
+  .detailImg11 {
+    background-image: url('./assets/images/aboutStoreImg04-2.jpg');
+  }
+  .detailImg12 {
+    background-image: url('./assets/images/aboutStoreImg04-3.jpg');
   }
 
   .aboutStoreTxt {

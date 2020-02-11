@@ -67,6 +67,7 @@
         <div class="teamImgBox"></div>
       </div>
     </div>
+
     <!-- slogan -->
     <div class="slogan">
       <div class="sloganLine"></div>
@@ -116,6 +117,55 @@
                 </div>
               </div>
               <div class="col-8 aboutStoreImg aboutStoreImg2"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- aboutStore2 -->
+    <div class="aboutStore">
+      <div class="container aboutStoreContainer">
+        <div class="row h-100">
+          <div class="col-12 col-lg-5 responsiveH100vh">
+            <div class="row h-100 aboutBg aboutBgY">
+              <div class="col-8 aboutStoreImg aboutStoreImg3"></div>
+              <div class="col-4">
+                <div class="row detailMt">
+                  <div class="col-12">
+                    <div class="detailImg7 detailImg"></div>
+                  </div>
+                  <div class="col-12">
+                    <div class="detailImg8 detailImg"></div>
+                  </div>
+                  <div class="col-12">
+                    <div class="detailImg9 detailImg"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-lg-2 aboutSlogan my-4">
+            <span>Personal</span>
+            <span>&</span>
+            <span>Style</span>
+          </div>
+          <div class="col-12 col-lg-5 responsiveH100vh">
+            <div class="row h-100 aboutBg aboutBgG">
+              <div class="col-4">
+                <div class="row detailMt">
+                  <div class="col-12 aboutFlexRow">
+                    <div class="detailImg10 detailImg"></div>
+                  </div>
+                  <div class="col-12 aboutFlexRow">
+                    <div class="detailImg11 detailImg"></div>
+                  </div>
+                  <div class="col-12 aboutFlexRow">
+                    <div class="detailImg12 detailImg"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-8 aboutStoreImg aboutStoreImg4"></div>
             </div>
           </div>
         </div>

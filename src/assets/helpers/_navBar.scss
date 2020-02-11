@@ -3,6 +3,7 @@
   position: relative;
 
   .responsiveLists {
+    z-index: 1;
     @include size(100%, auto);
     display: flex;
     position: fixed;
