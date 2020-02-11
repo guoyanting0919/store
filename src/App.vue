@@ -1,32 +1,91 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+    <!-- navBar -->
+    <div class="navBar">
+      <div class="logo">
+        <h3>LOGO</h3>
+      </div>
+      <div class="responsiveLists" :class="{'show':this.listShow}">
+        <router-link class="responsiveList" @click.native="listShow=false" to="/home">
+          <i class="fas fa-home"></i>
+          <span>HOME</span>
+        </router-link>
+        <router-link class="responsiveList" @click.native="listShow=false" to="/about">
+          <i class="fas fa-address-card"></i>
+          <span>ABOUT</span>
+        </router-link>
+        <router-link class="responsiveList" @click.native="listShow=false" to="/store">
+          <i class="fas fa-shopping-cart"></i>
+          <span>STORE</span>
+        </router-link>
+        <router-link class="responsiveList" @click.native="listShow=false" to="/contact">
+          <i class="far fa-envelope"></i>
+          <span>CONTACT</span>
+        </router-link>
+      </div>
+      <ul class="navLists">
+        <div class="burger">
+          <i @click="listShow=!listShow" class="fas fa-bars"></i>
+        </div>
+        <router-link class="navList" to="/home">
+          <i class="fas fa-home"></i>
+          <span>HOME</span>
+        </router-link>
+        <router-link class="navList" to="/about">
+          <i class="fas fa-address-card"></i>
+          <span>ABOUT</span>
+        </router-link>
+        <router-link class="navList" to="/store">
+          <i class="fas fa-shopping-cart"></i>
+          <span>STORE</span>
+        </router-link>
+        <router-link class="navList" to="/contact">
+          <i class="far fa-envelope"></i>
+          <span>CONTACT</span>
+        </router-link>
+      </ul>
+      <div class="loginBox">
+        <div>
+          <button class="memberBtn" v-if="this.$cookies.isKey('uid')" @click="logOutHandler">
+            <i class="fas fa-user isLogin"></i>
+            <span class="isLoginSpan">會員登出</span>
+          </button>
+          <button class="memberBtn isNotLoginBtn" v-else @click="signInHandler">
+            <i class="fas fa-user isNotLogin"></i>
+            <span class="isNotLoginSpan">登入/註冊</span>
+          </button>
+        </div>
+      </div>
     </div>
-    <router-view/>
+    <router-view />
   </div>
 </template>
 
-<style lang="scss">
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
+<script>
+export default {
+  name: "App",
+  data() {
+    return {
+      listShow: false
+    };
+  },
+  methods: {
+    logOutHandler() {
+      this.$cookies.remove("uid");
+      this.$router.push("/login");
+    },
+    signInHandler() {
+      this.$router.push("/login");
     }
   }
+};
+</script>
+
+<style lang="scss">
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
+@import "./assets/all.scss";
 </style>

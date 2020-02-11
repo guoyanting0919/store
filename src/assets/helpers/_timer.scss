@@ -1,0 +1,103 @@
+.about {
+  .timer {
+    position: relative;
+    height: auto;
+    background: white;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .timerImgPadding {
+    position: sticky;
+    top: 60px;
+    min-width: 50%;
+    height: calc(100vh - 60px);
+    padding: 40px;
+    //平板
+    @include pad-width {
+      padding: 15px;
+    }
+    //小平板
+    @include small-pad-width {
+      padding: 15px;
+      min-width: 100%;
+      position: static;
+      top: 0;
+      order: 2;
+    }
+    //手機
+    @include phone-width {
+      padding: 10px;
+      min-width: 100%;
+      position: static;
+      top: 0;
+      order: 2;
+    }
+  }
+
+  .timerImgBox {
+    @include size(100%);
+    background-image: url('./assets/images/timer1.jpg');
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+
+  .timerTxt {
+    max-width: 50%;
+
+    //小平板
+    @include small-pad-width {
+      min-width: 100%;
+      order: 1;
+    }
+    //手機
+    @include phone-width {
+      min-width: 100%;
+      order: 1;
+    }
+
+    h2 {
+      font-size: 4em;
+      font-family: $enFont;
+      text-align: center;
+      margin: 50px;
+      margin-bottom: 30px;
+      letter-spacing: 2px;
+      position: relative;
+
+      //平板
+      @include pad-width {
+        font-size: 2.5em;
+      }
+      //小平板
+      @include small-pad-width {
+        font-size: 2.3em;
+      }
+      //手機
+      @include phone-width {
+        font-size: 2.3em;
+      }
+    }
+
+    p {
+      line-height: 1.5;
+      font-size: 2em;
+      letter-spacing: 1px;
+      font-family: $enFont;
+      padding: 20px;
+      //平板
+      @include pad-width {
+        font-size: 1.5em;
+      }
+      //小平板
+      @include small-pad-width {
+        display: none;
+      }
+      //手機
+      @include phone-width {
+        display: none;
+      }
+    }
+  }
+}

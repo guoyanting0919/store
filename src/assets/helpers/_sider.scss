@@ -1,0 +1,151 @@
+.slider {
+  @include size(100%, calc(100vh - 60px));
+  display: flex;
+  //手機
+  @include phone-width {
+    flex-direction: column;
+  }
+  .slide:nth-child(1) {
+    //手機
+    @include phone-width {
+      background-position: 50% 38%;
+    }
+  }
+  .slide:nth-child(2) {
+    //手機
+    @include phone-width {
+      background-position: 51% 29%;
+    }
+  }
+  .slide:nth-child(3) {
+    //手機
+    @include phone-width {
+      background-position: 51% 37%;
+    }
+  }
+  .slide:nth-child(5) {
+    //手機
+    @include phone-width {
+      background-position: 49% 46%;
+    }
+  }
+  .slide {
+    max-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    flex: 1;
+    overflow: hidden;
+    transition: 0.5s ease-in-out;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    .contentTxtWhite {
+      color: rgba(255, 255, 255, 0.6);
+    }
+
+    .contentTxtBlack {
+      color: rgba(0, 0, 0, 0.6);
+    }
+
+    .content {
+      text-align: center;
+      margin: 30px;
+      padding: 20px;
+      visibility: hidden;
+      opacity: 0;
+      transition: 0.5s;
+
+      //平板
+      @include pad-width {
+        margin: 20px;
+        padding: 20px;
+      }
+      //小平板
+      @include small-pad-width {
+        margin: 20px;
+        padding: 0px;
+      }
+      //手機
+      @include phone-width {
+        margin: 20px;
+        padding: 0px;
+      }
+
+      h2 {
+        margin: 0;
+        padding: 0;
+        font-size: 7em;
+        pointer-events: none;
+        font-weight: 700;
+        //平板
+        @include pad-width {
+          font-size: 5em;
+        }
+        //小平板
+        @include small-pad-width {
+          font-size: 3.5em;
+        }
+        //手機
+        @include phone-width {
+          font-size: 3em;
+        }
+      }
+
+      p {
+        margin: 0;
+        text-align: center;
+        font-size: 2em;
+        cursor: pointer;
+        //平板
+        @include pad-width {
+          font-size: 1.5em;
+        }
+        //小平板
+        @include small-pad-width {
+          font-size: 1.5em;
+        }
+        @include phone-width {
+          font-size: 1.5em;
+          font-weight: 500;
+        }
+
+        i {
+          transition: 0.5s;
+        }
+
+        &:hover i {
+          transform: translateX(10px);
+        }
+      }
+    }
+  }
+
+  .slide1 {
+    background-image: url('./assets/images/man1.jpg');
+  }
+  .slide2 {
+    background-image: url('./assets/images/women2.jpg');
+  }
+  .slide3 {
+    background-image: url('./assets/images/all.jpg');
+  }
+  .slide4 {
+    background-image: url('./assets/images/kid4.jpg');
+  }
+  .slide5 {
+    background-image: url('./assets/images/couple4.jpg');
+  }
+
+  .slide.activeSlide {
+    flex-grow: 3;
+  }
+
+  .slide.activeSlide .content {
+    visibility: visible;
+    opacity: 1;
+    transition: 0.5s;
+    transition-delay: 0.5s;
+  }
+}
