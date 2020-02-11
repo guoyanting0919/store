@@ -1,5 +1,5 @@
 .about {
-  .timer {
+  .team {
     position: relative;
     height: auto;
     background: white;
@@ -7,7 +7,7 @@
     flex-wrap: wrap;
   }
 
-  .timerImgPadding {
+  .teamImgPadding {
     position: sticky;
     top: 60px;
     min-width: 50%;
@@ -32,22 +32,19 @@
       position: static;
       top: 0;
       order: 2;
-      //手機
-      @include phone-width {
-        height: 50vh;
-      }
+      height: 50vh;
     }
   }
 
-  .timerImgBox {
+  .teamImgBox {
     @include size(100%);
-    background-image: url('./assets/images/timer2.jpg');
+    background-image: url('./assets/images/team2.jpg');
     background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;
   }
 
-  .timerTxt {
+  .teamTxt {
     max-width: 50%;
 
     //小平板
@@ -118,6 +115,8 @@
         font-size: 1.5em;
         color: #8a0606;
         font-weight: 700;
+        margin-top: 20px;
+        display: block;
       }
     }
   }
