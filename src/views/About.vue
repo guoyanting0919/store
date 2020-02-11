@@ -6,10 +6,10 @@
         <div class="bannerImg">
           <div class="bannerImgCover">
             <p class="bannerTxt">
+              <!-- <span></span>
               <span></span>
               <span></span>
-              <span></span>
-              <span></span>
+              <span></span>-->
               <small>W</small>elcome To Our Store.
             </p>
           </div>
