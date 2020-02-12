@@ -1,0 +1,69 @@
+.store {
+  .storeSideBar {
+    width: 25%;
+    position: sticky;
+    top: 80px;
+    display: inline-block;
+    align-self: flex-start;
+  }
+
+  .sideBar {
+    @include size(100%, 350px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-image: url('./assets/images/banner3.jpg');
+    background-position: -106% 50%;
+    background-size: cover;
+    position: relative;
+    border-radius: 10px;
+
+    &::before {
+      content: '';
+      position: absolute;
+      @include size(90%);
+      border: 2px solid #cac7c7;
+      border-radius: 10px;
+    }
+  }
+
+  .sideBarBg {
+    background-color: rgba(0, 0, 0, 0.6);
+    @include size(100%, 350px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    border-radius: 10px;
+  }
+
+  .sideBarLink {
+    z-index: 1;
+    color: #cac7c7;
+    font-size: 20px;
+    margin: 5px 0;
+    border-bottom: 1px solid #cac7c7;
+    cursor: pointer;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
+  .sideBarIcon {
+    position: absolute;
+    top: 10%;
+    color: #cac7c7;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+
+    i {
+      margin: 10px;
+      font-size: 20px;
+    }
+  }
+}

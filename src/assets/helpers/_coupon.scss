@@ -1,0 +1,33 @@
+.store {
+  .coupon {
+    @include size(80%, 50px);
+    margin: auto;
+    background-color: $bgMainColor;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    box-sizing: border-box;
+
+    h6 {
+      font-family: $chFont;
+      margin: 0;
+      letter-spacing: 1px;
+      color: #cac7c7;
+
+      span {
+        font-weight: 700;
+        color: white;
+        font-size: 22px;
+      }
+    }
+
+    // .cartIcon {
+    //   i {
+    //     font-size: 24px;
+    //     margin-right: 10px;
+    //     color: #cac7c7;
+    //   }
+    // }
+  }
+}

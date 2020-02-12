@@ -1,0 +1,86 @@
+.store {
+  display: flex;
+  flex-wrap: wrap;
+  .storeMain {
+    width: 75%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    position: relative;
+    display: inline-block;
+  }
+
+  .storeProduct {
+    width: 90%;
+    margin: auto;
+  }
+
+  .productBg {
+    @include size(100%);
+    position: relative;
+    overflow: hidden;
+    height: 350px;
+    &::before {
+      content: '';
+      position: absolute;
+      @include size(88%, 90%);
+      background-color: attr(data-color);
+      right: 5px;
+      bottom: 10px;
+      background-color: currentColor;
+    }
+  }
+
+  .productImg {
+    @include size(100%, 85%);
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url('./assets/images/aboutStoreImg01.jpg');
+  }
+
+  .detailMt {
+    margin-top: 50px;
+  }
+
+  .detailImg {
+    width: 45px;
+    height: 60px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin-bottom: 10px;
+    opacity: 0.5;
+    cursor: pointer;
+    transition: 0.5s;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+  .detailImg1 {
+    background-image: url('./assets/images/aboutStoreImg01-1.jpg');
+    //手機
+    @include phone-width {
+      margin-top: 10px;
+    }
+  }
+
+  .detailImg2 {
+    background-image: url('./assets/images/aboutStoreImg01-2.jpg');
+  }
+
+  .detailImg3 {
+    background-image: url('./assets/images/aboutStoreImg01-3.jpg');
+  }
+
+  .productInfo {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+
+    h5 {
+      font-family: $chFont;
+    }
+  }
+}
