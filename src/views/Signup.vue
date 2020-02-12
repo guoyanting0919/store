@@ -50,19 +50,21 @@ export default {
         password,
         userName
       };
-      vm.$http.post("http://localhost:3000/users/signup", user).then(res => {
-        if (res.data.message === "success") {
-          alert(res.data.message2);
-          vm.$router.push("/login");
-        } else {
-          //   console.log(res);
-          if (res.data.code === "auth/weak-password") {
-            alert("密碼最少由6個字母或數字組成");
-          } else if (res.data.code === "auth/invalid-email") {
-            alert("請檢查郵件帳號是否輸入正確");
+      vm.$http
+        .post("https://aqueous-earth-60961.herokuapp.com/users/signup", user)
+        .then(res => {
+          if (res.data.message === "success") {
+            alert(res.data.message2);
+            vm.$router.push("/login");
+          } else {
+            //   console.log(res);
+            if (res.data.code === "auth/weak-password") {
+              alert("密碼最少由6個字母或數字組成");
+            } else if (res.data.code === "auth/invalid-email") {
+              alert("請檢查郵件帳號是否輸入正確");
+            }
           }
-        }
-      });
+        });
     },
     logInHandler() {
       this.$router.push("/login");

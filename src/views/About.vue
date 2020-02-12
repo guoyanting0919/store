@@ -24,7 +24,41 @@
       </div>
       <div class="timerTxt">
         <h2 class="timerTitle">- Since 1952 -</h2>
-        <p>
+        <div class="container-fluid timerContent">
+          <div class="row w-100 m-0 timerDotted">
+            <div class="col-6 timerYears">1952</div>
+            <div class="col-6 timerHappen">P&S創始店成立於澳洲墨爾本</div>
+          </div>
+          <div class="row w-100 m-0 timerDotted">
+            <div class="col-6 timerYears">1964</div>
+            <div class="col-6 timerHappen">開放加盟夥伴</div>
+          </div>
+          <div class="row w-100 m-0 timerDotted">
+            <div class="col-6 timerYears">1969</div>
+            <div class="col-6 timerHappen">澳洲本地達30間分店</div>
+          </div>
+          <div class="row w-100 m-0 timerDotted">
+            <div class="col-6 timerYears">1982</div>
+            <div class="col-6 timerHappen">開始海外擴張</div>
+          </div>
+          <div class="row w-100 m-0 timerDotted">
+            <div class="col-6 timerYears">1999</div>
+            <div class="col-6 timerHappen">金融海嘯，面臨資金周轉困難</div>
+          </div>
+          <div class="row w-100 m-0 timerDotted">
+            <div class="col-6 timerYears">2008</div>
+            <div class="col-6 timerHappen">歐美國家達6間直營店及百家分店</div>
+          </div>
+          <div class="row w-100 m-0 timerDotted">
+            <div class="col-6 timerYears">2014</div>
+            <div class="col-6 timerHappen">創立首間台灣直營店</div>
+          </div>
+          <div class="row w-100 m-0 timerDotted">
+            <div class="col-6 timerYears">2019</div>
+            <div class="col-6 timerHappen">台灣地區加盟店持續擴張</div>
+          </div>
+        </div>
+        <!-- <p>
           雖然台灣的秋冬氣溫比起其他地方相對比較不寒冷，有時厚重的大衣、外套等可能也派不上用場，但如果想穿搭出理想的季節溫度，同時平衡舒適自在的衣著感受的話，推薦大家以騎士皮衣外套加乘，透過萬年經典的款式為日常演繹多變帥氣個性，想知道有哪些搭配方式嗎？一起來看看吧。
           <br />
           <span>1952~1960</span>
@@ -41,7 +75,7 @@
           <br />
           <span>2014~</span>
           <br />充滿個性的騎士皮衣外套，向來是時尚圈永不退流行的必備單品，當想將帥氣與休閒完美混合時，選搭一件灰、黑色素 TEE 與九分長褲，便能輕鬆連結一股簡約低調的，選搭一件灰、黑色素 TEE 與九分長褲，便能輕鬆連結一股簡約低調的品味特色。
-        </p>
+        </p>-->
       </div>
     </div>
 

@@ -50,7 +50,11 @@ export default {
         withCredentials: true
       };
       this.$http
-        .post("http://localhost:3000/users/login", user, config)
+        .post(
+          "https://aqueous-earth-60961.herokuapp.com/users/login",
+          user,
+          config
+        )
         .then(res => {
           if (res.data.message === "success") {
             // console.log(res);

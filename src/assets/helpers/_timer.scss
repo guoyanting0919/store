@@ -48,7 +48,7 @@
   }
 
   .timerTxt {
-    max-width: 50%;
+    width: 50%;
 
     //小平板
     @include small-pad-width {
@@ -77,7 +77,8 @@
       padding: 20px 0;
       letter-spacing: 2px;
       position: relative;
-      color: #8a0606;
+      color: black;
+      z-index: 1;
 
       //平板
       @include pad-width {
@@ -93,31 +94,85 @@
       }
     }
 
-    p {
-      line-height: 2;
-      font-size: 1rem;
-      letter-spacing: 3px;
-      font-family: $chFont;
-      padding: 20px;
-      //平板
-      @include pad-width {
-        font-size: 1.5em;
-      }
-      //小平板
-      @include small-pad-width {
-        display: none;
-      }
-      //手機
+    .timerContent {
+      position: relative;
+
       @include phone-width {
         height: 30vh;
         overflow: auto;
       }
+    }
 
-      span {
-        font-size: 1.5em;
-        color: #8a0606;
-        font-weight: 700;
+    .timerDotted {
+      position: relative;
+
+      &::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background-color: black;
+        transform: translate(-40%, -50%);
+      }
+
+      &::after {
+        content: '';
+        position: absolute;
+        width: 2px;
+        height: 100%;
+        background-color: black;
+        top: 0;
+        left: 50%;
       }
     }
+
+    .timerYears,
+    .timerHappen {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 150px;
+      font-family: $chFont;
+    }
+
+    .timerYears {
+      font-size: 28px;
+      letter-spacing: 2px;
+    }
+
+    .timerHappen {
+      text-align: center;
+    }
+
+    // p {
+    //   line-height: 2;
+    //   font-size: 1rem;
+    //   letter-spacing: 3px;
+    //   font-family: $chFont;
+    //   padding: 20px;
+    //   color: #858383;
+    //   //平板
+    //   @include pad-width {
+    //     font-size: 1.5em;
+    //   }
+    //   //小平板
+    //   @include small-pad-width {
+    //     display: none;
+    //   }
+    //   //手機
+    //   @include phone-width {
+    //     height: 30vh;
+    //     overflow: auto;
+    //   }
+
+    //   span {
+    //     font-size: 1.5em;
+    //     color: #2b3615;
+    //     font-weight: 700;
+    //   }
+    // }
   }
 }

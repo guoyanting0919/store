@@ -34,6 +34,7 @@
       font-size: 1.3em;
       transition: 0.4s;
       letter-spacing: 1px;
+      z-index: 2;
 
       &:hover {
         text-decoration: none;
@@ -55,7 +56,7 @@
 
   .logo {
     @include size(auto, 60px);
-    z-index: 2;
+    z-index: 3;
     position: fixed;
     display: flex;
     justify-content: center;
@@ -73,7 +74,7 @@
   }
 
   .navLists {
-    z-index: 1;
+    z-index: 2;
     @include size(100%, 60px);
     display: flex;
     position: fixed;

@@ -74,7 +74,7 @@
       padding: 20px 0;
       letter-spacing: 2px;
       position: relative;
-      color: #8a0606;
+      color: #142b3d;
 
       //平板
       @include pad-width {
@@ -96,6 +96,7 @@
       letter-spacing: 3px;
       font-family: $chFont;
       padding: 20px;
+      color: #777272;
       //平板
       @include pad-width {
         font-size: 1.5em;
@@ -112,7 +113,7 @@
 
       span {
         font-size: 1.5em;
-        color: #8a0606;
+        color: #142b3d;
         font-weight: 700;
         margin-top: 20px;
         display: block;
