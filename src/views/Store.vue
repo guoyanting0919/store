@@ -18,11 +18,11 @@
     <div class="storeSideBar px-5 py-3">
       <div class="sideBar">
         <div class="sideBarBg">
-          <a class="sideBarLink" href="#" @click="category='all'">All</a>
-          <a class="sideBarLink" href="#" @click="category='man'">Man</a>
-          <a class="sideBarLink" href="#" @click="category='women'">Women</a>
-          <a class="sideBarLink" href="#" @click="category='kid'">Child</a>
-          <a class="sideBarLink" href="#" @click="category='couple'">Couple</a>
+          <a class="sideBarLink" @click="category='all'">All</a>
+          <a class="sideBarLink" @click="category='man'">Man</a>
+          <a class="sideBarLink" @click="category='women'">Women</a>
+          <a class="sideBarLink" @click="category='kid'">Child</a>
+          <a class="sideBarLink" @click="category='couple'">Couple</a>
           <div class="sideBarIcon">
             <i class="fas fa-search"></i>
             <i class="fas fa-shopping-cart"></i>
@@ -114,6 +114,7 @@ export default {
         .get("https://aqueous-earth-60961.herokuapp.com/products/products")
         .then(res => {
           vm.productsData = res.data;
+          console.log("OK");
         });
     }
   },

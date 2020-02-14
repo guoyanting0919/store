@@ -46,9 +46,12 @@
     margin: 5px 0;
     border-bottom: 1px solid #cac7c7;
     cursor: pointer;
+    transition: 0.4s;
 
     &:hover {
       text-decoration: none;
+      transform: translateY(-3px);
+      color: #cac7c7;
     }
   }
 

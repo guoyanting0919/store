@@ -6,6 +6,7 @@ import Home from '../views/Home.vue';
 import Signup from '../views/Signup.vue';
 import Store from '../views/Store.vue';
 import Contact from '../views/Contact.vue';
+import Admin from '../views/Admin.vue';
 
 Vue.use(VueRouter);
 
@@ -39,6 +40,11 @@ const routes = [
     path: '/contact',
     name: 'Contact',
     component: Contact
+  },
+  {
+    path: '/admin',
+    name: 'Admin',
+    component: Admin
   }
 ];
 
