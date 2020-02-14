@@ -31,12 +31,6 @@ export default {
       password: ""
     };
   },
-  computed: {
-    uid() {
-      return this.$cookies.isKey("uid");
-    }
-  },
-
   methods: {
     loginHandler() {
       const vm = this;
@@ -58,11 +52,10 @@ export default {
         .then(res => {
           if (res.data.message === "success") {
             // console.log(res);
-            // localStorage.setItem("uid", res.data.uid);
             vm.$cookies.set("uid", res.data.uid);
+            vm.$cookies.set("token", res.data.token);
             vm.$router.push("/home");
           } else {
-            // console.log(res);
             if (
               res.data.code === "auth/user-not-found" ||
               "auth/invalid-email"

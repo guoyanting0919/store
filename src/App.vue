@@ -72,6 +72,7 @@ export default {
   methods: {
     logOutHandler() {
       this.$cookies.remove("uid");
+      this.$cookies.remove("token");
       this.$router.push("/login");
     },
     signInHandler() {
