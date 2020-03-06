@@ -1,0 +1,47 @@
+.about {
+  .dessert {
+    @include size(100%, 100vh);
+    display: flex;
+  }
+  .dessertPic1,
+  .dessertPic2,
+  .dessertTxt {
+    @include size(34%, 100%);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .dessertPic1 {
+    background-image: url('./assets/images/dessert1.jpg');
+    //手機
+    @include phone-width {
+      display: none;
+    }
+  }
+  .dessertPic2 {
+    background-image: url('./assets/images/dessert2.jpg');
+    //手機
+    @include phone-width {
+      display: none;
+    }
+  }
+  .dessertTxt {
+    background-image: url('./assets/images/dessertG.jpg');
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    //手機
+    @include phone-width {
+      @include size(100%, 100%);
+    }
+
+    p {
+      font-family: $chFont2;
+      writing-mode: vertical-rl;
+      font-weight: 900;
+      font-size: 2rem;
+      letter-spacing: 3px;
+      margin: 0;
+    }
+  }
+}

@@ -2,194 +2,278 @@
   <div class="about">
     <!-- banner -->
     <div class="banner">
-      <div class="bannerBorder">
-        <div class="bannerImg">
-          <div class="bannerImgCover">
-            <p class="bannerTxt">
-              <!-- <span></span>
-              <span></span>
-              <span></span>
-              <span></span>-->
-              <small>W</small>elcome To Our Store.
-            </p>
+      <div class="bannerImg">
+        <div class="bannerImgCover">
+          <div class="bannerTxtBox">
+            <p ref="txt1" class="bannerTxt">美</p>
+            <p ref="txt2" class="bannerTxt">食</p>
+            <p ref="txt3" class="bannerTxt">˙</p>
+            <p ref="txt4" class="bannerTxt">公道婆</p>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- timer -->
-    <div class="timer">
-      <div class="timerImgPadding">
-        <div class="timerImgBox"></div>
-      </div>
-      <div class="timerTxt">
-        <h2 class="timerTitle">- Since 1952 -</h2>
-        <div class="container-fluid timerContent">
-          <div class="row w-100 m-0 timerDotted">
-            <div class="col-6 timerYears">1952</div>
-            <div class="col-6 timerHappen">P&S創始店成立於澳洲墨爾本</div>
-          </div>
-          <div class="row w-100 m-0 timerDotted">
-            <div class="col-6 timerYears">1964</div>
-            <div class="col-6 timerHappen">開放加盟夥伴</div>
-          </div>
-          <div class="row w-100 m-0 timerDotted">
-            <div class="col-6 timerYears">1969</div>
-            <div class="col-6 timerHappen">澳洲本地達30間分店</div>
-          </div>
-          <div class="row w-100 m-0 timerDotted">
-            <div class="col-6 timerYears">1982</div>
-            <div class="col-6 timerHappen">開始海外擴張</div>
-          </div>
-          <div class="row w-100 m-0 timerDotted">
-            <div class="col-6 timerYears">1999</div>
-            <div class="col-6 timerHappen">金融海嘯，面臨資金周轉困難</div>
-          </div>
-          <div class="row w-100 m-0 timerDotted">
-            <div class="col-6 timerYears">2008</div>
-            <div class="col-6 timerHappen">歐美國家達6間直營店及百家分店</div>
-          </div>
-          <div class="row w-100 m-0 timerDotted">
-            <div class="col-6 timerYears">2014</div>
-            <div class="col-6 timerHappen">創立首間台灣直營店</div>
-          </div>
-          <div class="row w-100 m-0 timerDotted">
-            <div class="col-6 timerYears">2019</div>
-            <div class="col-6 timerHappen">台灣地區加盟店持續擴張</div>
-          </div>
+    <!-- history -->
+    <div class="history">
+      <div class="historyImgBox">
+        <div class="historyImgCover">
+          <h4 class="historyTxt">
+            「吃到一半臨時決定來創帳號，哈。」
+            <br />
+            <span>2019.12.09</span>
+          </h4>
         </div>
       </div>
     </div>
 
-    <!-- team -->
-    <div class="team">
-      <div class="teamTxt">
-        <h2 class="teamTitle">- Our Team -</h2>
-        <p>
-          雖然台灣的秋冬氣溫比起其他地方相對比較不寒冷，有時厚重的大衣、外套等可能也派不上用場，但如果想穿搭出理想的季節溫度，同時平衡舒適自在的衣著感受的話，推薦大家以騎士皮衣外套加乘，透過萬年經典的款式為日常演繹多變帥氣個性，想知道有哪些搭配方式嗎？一起來看看吧。
-          <span>店長-星辰</span>充滿個性的騎士皮衣外套，向來是時尚圈永不退流行的必備單品，當想將帥氣與休閒完美混合時，選搭一件灰、黑色素 TEE 與九分長褲，便能輕鬆連結一股簡約低調的品味特色。
-          <span>副店長-阿嘉</span>>帶點無拘束風格的連帽上衣，不僅街頭時尚人士經常穿搭，更是懶人最愛的百搭實穿款，選擇連帽上衣外搭騎士皮衣外套，再將帽子拉出於外套上，立即為整體層次營造豐富又加分印象。
-          <span>採購長-國棟</span>
-          冬季氣溫不穩定有時面對低溫來襲，推薦將上衣換成針織毛衣可以提升造型溫度之外，儘管穿搭騎士皮衣外套，也不會覺得整體太過於保暖，下半身搭配深色或刷破牛仔褲就很好看加分。
-          <span>採購長-Shan</span>
-          充滿個性的騎士皮衣外套，向但如果想穿搭出理想的季節溫度，同時平衡舒適自在的衣著感受的話，推薦大家以騎士皮衣外套加乘，透過萬年經典的款式為日常演繹多變來是時尚圈永不退流行的必備單品，當想將帥氣與休閒完美混合時，選搭一件灰、黑色素 TEE 與九分長褲，便能輕鬆連結一股簡約低調的品味特色。
-          <span>優質店員-小慧</span>
-          充滿個性的騎士皮衣外套，向來是時尚圈永不退流行的必備單品，當想將帥氣與休閒完美混合時，選搭一件灰、黑色素 TEE 與九分長褲，便能輕鬆連結一股簡約低調的，選搭一件灰、黑色素 TEE 與九分長褲，便能輕鬆連結一股簡約低調的品味特色。
-          <span>優質店員-Jocilen</span>
-          充滿個性的騎士皮衣外套，向來是時尚圈永不退流行的必備單品，當想將帥氣與休閒完美混合時，選搭一件灰、黑色素 TEE 與九分長褲，便能輕鬆連結一股簡約低調的，選搭一件灰、黑色素 TEE 與九分長褲，便能輕鬆連結一股簡約低調的品味特色。
-        </p>
+    <!-- snake -->
+    <div class="snake">
+      <div class="snakePic">
+        <div class="img"></div>
       </div>
-      <div class="teamImgPadding">
-        <div class="teamImgBox"></div>
+      <div class="snakeTxt">
+        <p class="txtAniToggle">於此，記錄台灣各地美食。</p>
+      </div>
+    </div>
+
+    <!-- brunch -->
+    <div class="brunch">
+      <div class="brunchTxt">
+        <p class="txtAniToggle">無論是悠閒的早午餐...</p>
+      </div>
+      <div class="brunchPic">
+        <div class="img"></div>
+      </div>
+    </div>
+
+    <!-- roast -->
+    <div class="roast">
+      <div class="roastPic">
+        <div class="img"></div>
+      </div>
+      <div class="roastTxt">
+        <p class="txtAniToggle">還是精緻的燒烤...</p>
+      </div>
+    </div>
+
+    <!-- dessert -->
+    <div class="dessert">
+      <div class="dessertPic1"></div>
+      <div class="dessertTxt">
+        <p class="txtAniToggle">亦或是孩子最愛的甜點、飲品</p>
+      </div>
+      <div class="dessertPic2"></div>
+    </div>
+    <!-- score -->
+    <div class="score">
+      <div class="scoreMainTitle">透過CARE標準評鑑，在乎您每次的用餐體驗。</div>
+      <div class="costPerformance">
+        <div class="iconBox">
+          <i class="fas fa-dollar-sign"></i>
+          <h4 class="scoreEnTitle">costPerformance</h4>
+          <h3 class="scoreChTitle">CP值</h3>
+        </div>
+        <div class="stars mt-4">
+          <p class="scoreDetail">
+            又貴又難吃
+            <i class="fas fa-star"></i>
+            <i class="far fa-star"></i>
+            <i class="far fa-star"></i>
+            <i class="far fa-star"></i>
+            <i class="far fa-star"></i>
+          </p>
+          <p class="scoreDetail">
+            低價難吃/高價食物普普
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="far fa-star"></i>
+            <i class="far fa-star"></i>
+            <i class="far fa-star"></i>
+          </p>
+          <p class="scoreDetail">
+            正常水平如同10元麥香
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="far fa-star"></i>
+            <i class="far fa-star"></i>
+          </p>
+          <p class="scoreDetail">
+            一周可以吃4天且不會吃土
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="far fa-star"></i>
+          </p>
+          <p class="scoreDetail">
+            吃土也要吃
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          </p>
+        </div>
+      </div>
+      <div class="attitude">
+        <div class="iconBox">
+          <i class="fas fa-hands"></i>
+          <h4 class="scoreEnTitle">attitude</h4>
+          <h3 class="scoreChTitle">服務態度</h3>
+        </div>
+        <div class="stars mt-4">
+          <p class="scoreDetail">
+            不是口氣差就是沒刷牙
+            <i class="fas fa-star"></i>
+            <i class="far fa-star"></i>
+            <i class="far fa-star"></i>
+            <i class="far fa-star"></i>
+            <i class="far fa-star"></i>
+          </p>
+          <p class="scoreDetail">
+            愛理不理，忘東忘西
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="far fa-star"></i>
+            <i class="far fa-star"></i>
+            <i class="far fa-star"></i>
+          </p>
+          <p class="scoreDetail">
+            請，謝謝，對不起
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="far fa-star"></i>
+            <i class="far fa-star"></i>
+          </p>
+          <p class="scoreDetail">
+            還會跟你聊天打屁
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="far fa-star"></i>
+          </p>
+          <p class="scoreDetail">
+            以為自己是皇帝
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          </p>
+        </div>
+      </div>
+      <div class="returnVisit">
+        <div class="iconBox">
+          <i class="fas fa-car"></i>
+          <h4 class="scoreEnTitle">returnVisit</h4>
+          <h3 class="scoreChTitle">回訪意願</h3>
+        </div>
+        <div class="stars mt-4">
+          <p class="scoreDetail">
+            免費我也不要去
+            <i class="fas fa-star"></i>
+            <i class="far fa-star"></i>
+            <i class="far fa-star"></i>
+            <i class="far fa-star"></i>
+            <i class="far fa-star"></i>
+          </p>
+          <p class="scoreDetail">
+            生日1折優惠給你1次機會
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="far fa-star"></i>
+            <i class="far fa-star"></i>
+            <i class="far fa-star"></i>
+          </p>
+          <p class="scoreDetail">
+            路過看到會想進去
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="far fa-star"></i>
+            <i class="far fa-star"></i>
+          </p>
+          <p class="scoreDetail">
+            不然下次聚會辦在這裡
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="far fa-star"></i>
+          </p>
+          <p class="scoreDetail">
+            颱風天出門也願意
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          </p>
+        </div>
+      </div>
+      <div class="environment">
+        <div class="iconBox">
+          <i class="fas fa-utensils"></i>
+          <h4 class="scoreEnTitle">environment</h4>
+          <h3 class="scoreChTitle">用餐環境</h3>
+        </div>
+        <div class="stars mt-4">
+          <p class="scoreDetail">
+            昆蟲實境秀
+            <i class="fas fa-star"></i>
+            <i class="far fa-star"></i>
+            <i class="far fa-star"></i>
+            <i class="far fa-star"></i>
+            <i class="far fa-star"></i>
+          </p>
+          <p class="scoreDetail">
+            隔壁桌可以安靜點嗎?
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="far fa-star"></i>
+            <i class="far fa-star"></i>
+            <i class="far fa-star"></i>
+          </p>
+          <p class="scoreDetail">
+            沒座位，只能外帶
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="far fa-star"></i>
+            <i class="far fa-star"></i>
+          </p>
+          <p class="scoreDetail">
+            鳥正面撞到玻璃
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="far fa-star"></i>
+          </p>
+          <p class="scoreDetail">
+            雙方家長第一次見面，這裡可以
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          </p>
+        </div>
       </div>
     </div>
 
     <!-- slogan -->
     <div class="slogan">
-      <div class="sloganLine"></div>
-      <h5 class="sloganTxt">「風格，才是個人穿搭最重要的事情。」</h5>
-    </div>
-
-    <!-- aboutStore -->
-    <div class="aboutStore">
-      <div class="container aboutStoreContainer">
-        <div class="row h-100">
-          <div class="col-12 col-lg-5 responsiveH100vh">
-            <div class="row h-100 aboutBg aboutBgR">
-              <div class="col-8 aboutStoreImg aboutStoreImg1"></div>
-              <div class="col-4">
-                <div class="row detailMt">
-                  <div class="col-12">
-                    <div class="detailImg1 detailImg"></div>
-                  </div>
-                  <div class="col-12">
-                    <div class="detailImg2 detailImg"></div>
-                  </div>
-                  <div class="col-12">
-                    <div class="detailImg3 detailImg"></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-12 col-lg-2 aboutSlogan my-4">
-            <span>Personal</span>
-            <span>&</span>
-            <span>Style</span>
-          </div>
-          <div class="col-12 col-lg-5 responsiveH100vh">
-            <div class="row h-100 aboutBg aboutBgB">
-              <div class="col-4">
-                <div class="row detailMt">
-                  <div class="col-12 aboutFlexRow">
-                    <div class="detailImg4 detailImg"></div>
-                  </div>
-                  <div class="col-12 aboutFlexRow">
-                    <div class="detailImg5 detailImg"></div>
-                  </div>
-                  <div class="col-12 aboutFlexRow">
-                    <div class="detailImg6 detailImg"></div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-8 aboutStoreImg aboutStoreImg2"></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- aboutStore2 -->
-    <div class="aboutStore">
-      <div class="container aboutStoreContainer">
-        <div class="row h-100">
-          <div class="col-12 col-lg-5 responsiveH100vh">
-            <div class="row h-100 aboutBg aboutBgY">
-              <div class="col-8 aboutStoreImg aboutStoreImg3"></div>
-              <div class="col-4">
-                <div class="row detailMt">
-                  <div class="col-12">
-                    <div class="detailImg7 detailImg"></div>
-                  </div>
-                  <div class="col-12">
-                    <div class="detailImg8 detailImg"></div>
-                  </div>
-                  <div class="col-12">
-                    <div class="detailImg9 detailImg"></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-12 col-lg-2 aboutSlogan my-4">
-            <span>Personal</span>
-            <span>&</span>
-            <span>Style</span>
-          </div>
-          <div class="col-12 col-lg-5 responsiveH100vh">
-            <div class="row h-100 aboutBg aboutBgG">
-              <div class="col-4">
-                <div class="row detailMt">
-                  <div class="col-12 aboutFlexRow">
-                    <div class="detailImg10 detailImg"></div>
-                  </div>
-                  <div class="col-12 aboutFlexRow">
-                    <div class="detailImg11 detailImg"></div>
-                  </div>
-                  <div class="col-12 aboutFlexRow">
-                    <div class="detailImg12 detailImg"></div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-8 aboutStoreImg aboutStoreImg4"></div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <!-- <div class="sloganLine"></div> -->
+      <h5 class="sloganTxt txtAniToggle">「字裡行間，沒有修飾，難吃就是難吃。」</h5>
     </div>
 
     <!-- aboutFooter -->
-    <div class="aboutFooterImg mt-5">
+    <div class="aboutFooterImg">
       <div class="footerImg">
         <div class="footerContainerBg">
           <div class="container-fluid">
@@ -228,6 +312,16 @@ import $ from "jquery";
 
 export default {
   mounted() {
+    // console.log(this.$refs.may.offsetHeight);
+    setTimeout(() => {
+      this.$refs.txt1.style.opacity = 1;
+      this.$refs.txt2.style.opacity = 1;
+      this.$refs.txt3.style.opacity = 1;
+      this.$refs.txt4.style.opacity = 1;
+    }, 2200);
+    setTimeout(() => {
+      $(".bannerImg").css("filter", "saturate(1.5)");
+    }, 1000);
     let Pb = {};
     Pb.opacityZero = function(elementSeletor) {
       $(elementSeletor).css("opacity", 0);
@@ -255,12 +349,8 @@ export default {
         });
       });
     };
-    Pb.appear(".sloganTxt", 1500);
-    Pb.appear(".timerTitle", 1500);
-    Pb.appear(".teamTitle", 1500);
-    Pb.opacityZero(".sloganTxt");
-    Pb.opacityZero(".teamTitle");
-    Pb.opacityZero(".timerTitle");
+    Pb.opacityZero(".txtAniToggle");
+    Pb.appear(".txtAniToggle", 1500);
   }
 };
 </script>

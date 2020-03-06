@@ -2,47 +2,29 @@
   @include size(100%, auto);
 
   .banner {
-    @include size(100%, calc(100vh - 60px));
+    @include size(100%, 100vh);
     display: flex;
     justify-content: center;
     align-items: center;
   }
 
-  .bannerBorder {
-    @include size(97%, 93%);
-    border: 5px solid black;
-    padding: 30px;
-    //平板
-    @include pad-width {
-      @include size(95%, 93%);
-      padding: 25px;
-    }
-    //小平板
-    @include small-pad-width {
-      @include size(92%, 93%);
-      padding: 20px;
-    }
-    //手機
-    @include phone-width {
-      @include size(91%, 96%);
-      padding: 15px;
-    }
-  }
-
   .bannerImg {
     @include size(100%);
-    background-image: url('./assets/images/banner1.jpg');
+    background-image: url('./assets/images/banner.jpg');
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
+    transition: 2.5s;
+    filter: saturate(0);
     // background-attachment: fixed;
   }
 
   .bannerImgCover {
     @include size(100%);
-    background-color: rgba(0, 0, 0, 0.3);
+    background-image: linear-gradient(to left, black, transparent);
+    opacity: 0.9;
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: flex-end;
     padding: 30px;
     //平板
@@ -59,18 +41,41 @@
     }
   }
 
+  .bannerTxtBox {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+  }
+
   .bannerTxt {
     color: white;
-    font-family: $enFont;
-    font-weight: 400;
-    letter-spacing: 2px;
-    font-size: 5em;
-    text-align: center;
-    padding: 20px 30px;
-    position: relative;
-    overflow: hidden;
+    pointer-events: none;
+    font-family: $chFont2;
+    font-weight: 500;
+    letter-spacing: 5px;
+    font-size: 4em;
     margin: 0;
-    padding-bottom: 0;
+    transition: 1s;
+    opacity: 0;
+
+    &:nth-child(1),
+    &:nth-child(2),
+    &:nth-child(3) {
+      font-size: 5em;
+      font-weight: 700;
+      margin-bottom: -20px;
+    }
+
+    &:nth-child(2) {
+      transition-delay: 0.5s;
+    }
+    &:nth-child(3) {
+      transition-delay: 0.75s;
+    }
+    &:nth-child(4) {
+      transition-delay: 1.5s;
+    }
 
     //平板
     @include pad-width {
@@ -83,45 +88,6 @@
     //手機
     @include phone-width {
       font-size: 2em;
-      padding: 0px;
-      padding-top: 20px;
-      padding-bottom: 10px;
-      margin-bottom: 40px;
-    }
-
-    span:nth-child(1) {
-      @include size(100%, 4px);
-      background-image: linear-gradient(to right, transparent, white);
-      position: absolute;
-      top: 0;
-      left: 0;
-      animation: animate1 2s linear infinite;
-    }
-    span:nth-child(2) {
-      @include size(4px, 100%);
-      background-image: linear-gradient(to bottom, transparent, white);
-      position: absolute;
-      right: 0;
-      top: 0;
-      animation: animate2 2s linear infinite;
-      animation-delay: 1s;
-    }
-    span:nth-child(3) {
-      @include size(100%, 4px);
-      background-image: linear-gradient(to left, transparent, white);
-      position: absolute;
-      bottom: 0;
-      right: 0;
-      animation: animate3 2s linear infinite;
-    }
-    span:nth-child(4) {
-      @include size(4px, 100%);
-      background-image: linear-gradient(to top, transparent, white);
-      position: absolute;
-      left: 0;
-      top: 0;
-      animation: animate4 2s linear infinite;
-      animation-delay: 1s;
     }
   }
 }

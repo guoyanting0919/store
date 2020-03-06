@@ -8,6 +8,7 @@ import VueCookies from 'vue-cookies';
 Vue.use(VueAxios, axios);
 Vue.use(VueCookies);
 Vue.config.productionTip = false;
+axios.defaults.withCredentials = true;
 // set cookies default config
 Vue.$cookies.config('1d');
 new Vue({

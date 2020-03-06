@@ -3,24 +3,24 @@
     <!-- navBar -->
     <div class="navBar">
       <div class="logo">
-        <h3>P&S</h3>
+        <h3>Food.G_D_P</h3>
       </div>
       <div class="responsiveLists" :class="{'show':this.listShow}">
         <router-link class="responsiveList" @click.native="listShow=false" to="/home">
           <i class="fas fa-home"></i>
-          <span>HOME</span>
+          <span class="navBarItem">首頁</span>
         </router-link>
         <router-link class="responsiveList" @click.native="listShow=false" to="/about">
           <i class="fas fa-address-card"></i>
-          <span>ABOUT</span>
+          <span class="navBarItem">關於我們</span>
         </router-link>
         <router-link class="responsiveList" @click.native="listShow=false" to="/store">
           <i class="fas fa-shopping-cart"></i>
-          <span>STORE</span>
+          <span class="navBarItem">美食街</span>
         </router-link>
         <router-link class="responsiveList" @click.native="listShow=false" to="/contact">
           <i class="far fa-envelope"></i>
-          <span>CONTACT</span>
+          <span class="navBarItem">聯絡我們</span>
         </router-link>
       </div>
       <ul class="navLists">
@@ -29,19 +29,19 @@
         </div>
         <router-link class="navList" to="/home">
           <i class="fas fa-home"></i>
-          <span>HOME</span>
+          <span class="navBarItem">首頁</span>
         </router-link>
         <router-link class="navList" to="/about">
           <i class="fas fa-address-card"></i>
-          <span>ABOUT</span>
+          <span class="navBarItem">關於我們</span>
         </router-link>
         <router-link class="navList" to="/store">
           <i class="fas fa-shopping-cart"></i>
-          <span>STORE</span>
+          <span class="navBarItem">美食街</span>
         </router-link>
         <router-link class="navList" to="/contact">
           <i class="far fa-envelope"></i>
-          <span>CONTACT</span>
+          <span class="navBarItem">聯絡我們</span>
         </router-link>
       </ul>
       <div class="loginBox">

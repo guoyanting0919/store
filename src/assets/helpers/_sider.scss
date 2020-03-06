@@ -1,5 +1,5 @@
 .slider {
-  @include size(100%, calc(100vh - 60px));
+  @include size(100%, 100vh);
   display: flex;
   //手機
   @include phone-width {
@@ -8,19 +8,19 @@
   .slide:nth-child(1) {
     //手機
     @include phone-width {
-      background-position: 50% 38%;
+      // background-position: 50% 38%;
     }
   }
   .slide:nth-child(2) {
     //手機
     @include phone-width {
-      background-position: 51% 29%;
+      // background-position: 51% 29%;
     }
   }
   .slide:nth-child(3) {
     //手機
     @include phone-width {
-      background-position: 51% 37%;
+      // background-position: 51% 37%;
     }
   }
   .slide:nth-child(5) {
@@ -40,13 +40,24 @@
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
+    border-right: 5px solid rgba(0, 0, 0, 0.6);
+
+    //手機
+    @include phone-width {
+      border-right: none;
+      border-bottom: 5px solid rgba(0, 0, 0, 0.6);
+    }
+
+    &:nth-child(5) {
+      border: none;
+    }
 
     .contentTxtWhite {
-      color: rgba(255, 255, 255, 0.6);
+      color: rgba(255, 255, 255, 0.7);
     }
 
     .contentTxtBlack {
-      color: rgba(0, 0, 0, 0.6);
+      color: rgba(0, 0, 0, 0.7);
     }
 
     .content {
@@ -55,6 +66,7 @@
       padding: 20px;
       visibility: hidden;
       opacity: 0;
+      font-family: $chFont2;
       transition: 0.5s;
 
       //平板
@@ -123,19 +135,19 @@
   }
 
   .slide1 {
-    background-image: url('./assets/images/man1.jpg');
+    background-image: url('./assets/images/slider2.jpg');
   }
   .slide2 {
-    background-image: url('./assets/images/women2.jpg');
+    background-image: url('./assets/images/slider3.jpg');
   }
   .slide3 {
-    background-image: url('./assets/images/all.jpg');
+    background-image: url('./assets/images/slider1.jpg');
   }
   .slide4 {
-    background-image: url('./assets/images/kid4.jpg');
+    background-image: url('./assets/images/slider6.jpg');
   }
   .slide5 {
-    background-image: url('./assets/images/couple4.jpg');
+    background-image: url('./assets/images/slider5.jpg');
   }
 
   .slide.activeSlide {

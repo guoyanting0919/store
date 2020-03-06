@@ -1,0 +1,49 @@
+.about {
+  .snake {
+    @include size(100%, 100vh);
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .snakePic {
+    @include size(50%, 100vh);
+    //手機
+    @include phone-width {
+      @include size(100%, 70%);
+      order: 1;
+    }
+
+    .img {
+      @include size(100%);
+      background-image: url('./assets/images/taiwanPic.jpg');
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+  }
+
+  .snakeTxt {
+    @include size(50%, 100vh);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url('./assets/images/taiwanG.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    //手機
+    @include phone-width {
+      @include size(100%, 30%);
+    }
+    p {
+      margin: 0;
+      font-size: 2rem;
+      font-family: $chFont2;
+      font-weight: 900;
+      letter-spacing: 3px; //手機
+      @include phone-width {
+        font-size: 1.6rem;
+      }
+    }
+  }
+}

@@ -13,9 +13,9 @@
         :class="{'activeSlide':this.activeSlide==='slide1'}"
       >
         <div class="content contentTxtBlack">
-          <h2>MAN</h2>
+          <h2>早午餐</h2>
           <p>
-            GO SHOP
+            BRUNCH
             <i class="fa fa-angle-double-right"></i>
           </p>
         </div>
@@ -26,9 +26,9 @@
         :class="{'activeSlide':this.activeSlide==='slide2'}"
       >
         <div class="content contentTxtWhite">
-          <h2>WOMEN</h2>
+          <h2>定食</h2>
           <p>
-            GO SHOP
+            MEALS
             <i class="fa fa-angle-double-right"></i>
           </p>
         </div>
@@ -39,9 +39,9 @@
         :class="{'activeSlide':this.activeSlide==='slide3'}"
       >
         <div class="content contentTxtWhite">
-          <h2>ALL</h2>
+          <h2>燒烤</h2>
           <p>
-            GO SHOP
+            ROAST
             <i class="fa fa-angle-double-right"></i>
           </p>
         </div>
@@ -51,10 +51,10 @@
         @click="activeSlideHandler('slide4')"
         :class="{'activeSlide':this.activeSlide==='slide4'}"
       >
-        <div class="content contentTxtBlack">
-          <h2>KID</h2>
+        <div class="content contentTxtWhite">
+          <h2>小吃</h2>
           <p>
-            GO SHOP
+            SNAKE
             <i class="fa fa-angle-double-right"></i>
           </p>
         </div>
@@ -65,15 +65,14 @@
         :class="{'activeSlide':this.activeSlide==='slide5'}"
       >
         <div class="content contentTxtBlack">
-          <h2>COUPLE</h2>
+          <h2>甜點</h2>
           <p>
-            GO SHOP
+            DESSERT
             <i class="fa fa-angle-double-right"></i>
           </p>
         </div>
       </div>
     </div>
-
   </div>
 </template>
 

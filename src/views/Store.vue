@@ -33,51 +33,72 @@
 
     <!-- storeMain -->
     <div class="storeMain">
-      <!-- storeProduct -->
-      <div class="storeProduct">
-        <div class="container-fluid">
-          <div class="row mt-3" v-if="productsData">
-            <!-- product -->
-            <div v-for="product in productsFilter" :key="product.name" class="col-4 mb-5">
-              <div :style="{color:product.color}" class="row productBg">
-                <div class="col-8 productImg" :style="{backgroundImage:`url(${product.mainPic})`}"></div>
-                <div class="col-4">
-                  <div class="row detailMt">
-                    <div class="col-12">
-                      <div
-                        :style="{backgroundImage:`url(${product.detailPic1})`}"
-                        class="detailImg1 detailImg"
-                      ></div>
-                    </div>
-                    <div class="col-12">
-                      <div
-                        :style="{backgroundImage:`url(${product.detailPic2})`}"
-                        class="detailImg2 detailImg"
-                      ></div>
-                    </div>
-                    <div class="col-12">
-                      <div
-                        :style="{backgroundImage:`url(${product.detailPic3})`}"
-                        class="detailImg3 detailImg"
-                      ></div>
-                    </div>
+      <div class="storeProducts row">
+        <div class="storeProduct col-4 mt-4">
+          <div class="productImg"></div>
+          <div class="productTxt">
+            <div class="productIconBg">
+              <i class="fas fa-utensils"></i>
+            </div>
+            <h3 class="storeName">小家山食 Homey Café & Meal</h3>
+            <div class="badgesGroup">
+              <span class="badge badge-pill badge-info">早午餐</span>
+              <span class="badge badge-pill badge-info">桃園市</span>
+            </div>
+            <div class="productsScore mt-2">
+              <div class="productScoreBox">
+                <p class="scoreTitle">餐點 C P</p>
+                <div class="cpScore">
+                  <div class="1star">
+                    <i class="fas fa-star"></i>
+                    <i class="far fa-star"></i>
+                    <i class="far fa-star"></i>
+                    <i class="far fa-star"></i>
+                    <i class="far fa-star"></i>
                   </div>
                 </div>
               </div>
-              <div class="productInfo mt-2">
-                <div>
-                  <h5>{{product.name}}</h5>
-                  <h5>售價:{{product.price}}</h5>
+              <div class="productScoreBox">
+                <p class="scoreTitle">服務態度</p>
+                <div class="cpScore">
+                  <div class="1star">
+                    <i class="fas fa-star"></i>
+                    <i class="far fa-star"></i>
+                    <i class="far fa-star"></i>
+                    <i class="far fa-star"></i>
+                    <i class="far fa-star"></i>
+                  </div>
                 </div>
-                <button class="btn btn-danger">add</button>
+              </div>
+              <div class="productScoreBox">
+                <p class="scoreTitle">回訪意願</p>
+                <div class="cpScore">
+                  <div class="1star">
+                    <i class="fas fa-star"></i>
+                    <i class="far fa-star"></i>
+                    <i class="far fa-star"></i>
+                    <i class="far fa-star"></i>
+                    <i class="far fa-star"></i>
+                  </div>
+                </div>
+              </div>
+              <div class="productScoreBox">
+                <p class="scoreTitle">用餐環境</p>
+                <div class="cpScore">
+                  <div class="1star">
+                    <i class="fas fa-star"></i>
+                    <i class="far fa-star"></i>
+                    <i class="far fa-star"></i>
+                    <i class="far fa-star"></i>
+                    <i class="far fa-star"></i>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-
-    <br />
   </div>
 </template>
 
@@ -119,7 +140,6 @@ export default {
     }
   },
   created() {
-    const vm = this;
     this.getProducts();
   }
 };

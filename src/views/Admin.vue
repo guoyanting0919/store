@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <h3>Admin Page</h3>
+  <div class="admin">
+    <h3>Add Product</h3>
     <div class="form-group">
       <input type="text" v-model="name" placeholder="name" class="form-input" />
       <select v-model="category" name="category" id="category">
@@ -24,14 +24,40 @@
       <input type="text" v-model="specialPrice" placeholder="specialPrice" class="form-input" />
     </div>
     <button class="btn btn-info" @click="addProduct">送出</button>
+    <br />
+    <input type="file" name="file" ref="file" @change="uploadImg" />
+    <button @click="onSubmit">upload</button>
+    <h3>Products</h3>
+    <table class="productsTable">
+      <tr>
+        <th>產品名稱</th>
+        <th>產品售價</th>
+        <th class="text-center">刪除/修改</th>
+      </tr>
+      <tr
+        class="productTableRow"
+        v-for="(product,key) in products"
+        :props="key"
+        :key="product.name"
+      >
+        <td>{{product.name}}</td>
+        <td>{{product.price}}</td>
+        <td class="text-center">
+          <button class="btn btn-outline-danger" @click="deleteProduct(key)">DEL</button>
+          <button class="btn btn-outline-info">COM</button>
+        </td>
+      </tr>
+    </table>
   </div>
 </template>
 
 <script>
+import axios from "axios";
 export default {
   name: "admin",
   data() {
     return {
+      products: "",
       name: "",
       category: "",
       detail: "",
@@ -41,10 +67,26 @@ export default {
       detailPic3: "",
       color: "",
       price: "",
-      specialPrice: ""
+      specialPrice: "",
+      file: ""
     };
   },
   methods: {
+    getProducts() {
+      const vm = this;
+      vm.$http.get("http://localhost:3000/admin/getProduct").then(res => {
+        vm.products = res.data;
+      });
+    },
+    deleteProduct(key) {
+      const vm = this;
+      let id = key;
+      vm.$http
+        .delete(`http://localhost:3000/admin/deleteProduct/${id}`)
+        .then(res => {
+          vm.getProducts();
+        });
+    },
     addProduct() {
       const vm = this;
       let product = {
@@ -60,15 +102,44 @@ export default {
         specialPrice: vm.specialPrice
       };
       // console.log(product);
+      //https://aqueous-earth-60961.herokuapp.com/admin/addProduct
+      //http://localhost:3000/admin/addProduct
       this.$http
-        .post(
-          "https://aqueous-earth-60961.herokuapp.com/admin/addProduct",
-          product
-        )
+        .post("http://localhost:3000/admin/addProduct", product)
+        .then(res => {
+          if (res.data.success) {
+            vm.getProducts();
+          } else {
+            alert("添加產品失敗");
+            this.$router.push("/home");
+          }
+        });
+    },
+    uploadImg() {
+      this.file = this.$refs.file.files[0];
+    },
+    onSubmit() {
+      let formData = new FormData();
+      formData.append("image", this.file); //required
+      axios({
+        method: "POST",
+        url: "https://api.imgur.com/3/upload",
+        data: formData,
+        headers: {
+          Authorization: "Client-ID " + "ec3aa32e2ae58a8" //放置你剛剛申請的Client-ID
+        },
+        mimeType: "multipart/form-data"
+      })
         .then(res => {
           console.log(res);
+        })
+        .catch(e => {
+          console.log(e);
         });
     }
+  },
+  created() {
+    this.getProducts();
   }
 };
 </script>

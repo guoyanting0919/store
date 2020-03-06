@@ -1,0 +1,98 @@
+.about {
+  .score {
+    @include size(100%, 100vh);
+    display: flex;
+    background-color: #90eabf;
+    flex-wrap: wrap;
+    //手機
+    @include phone-width {
+      @include size(100%, auto);
+    }
+  }
+
+  .scoreMainTitle {
+    @include size(100%, 20%);
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    font-family: $chFont2;
+    font-weight: 900;
+    font-size: 3rem;
+
+    //手機
+    @include phone-width {
+      font-size: 1.5rem;
+      text-align: center;
+      margin-top: 2rem;
+    }
+  }
+
+  .costPerformance,
+  .attitude,
+  .returnVisit,
+  .environment {
+    @include size(25%, 80%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    //手機
+    @include phone-width {
+      @include size(100%, 80%);
+      margin-top: 4rem;
+    }
+
+    .fa-dollar-sign,
+    .fa-hands,
+    .fa-car,
+    .fa-utensils {
+      font-size: 4rem;
+    }
+  }
+
+  .iconBox {
+    @include size(100%, auto);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .scoreChTitle {
+    font-family: $chFont2;
+    font-weight: 900;
+    letter-spacing: 2px;
+    margin: 0;
+  }
+
+  .scoreEnTitle {
+    margin: 0;
+    margin-top: -10px;
+
+    &::first-letter {
+      text-transform: uppercase;
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #880202;
+    }
+  }
+
+  .stars {
+    @include size(100%, auto);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .scoreDetail {
+      font-family: $chFont2;
+      font-weight: 700;
+      font-size: 18px;
+    }
+
+    .fa-star {
+      font-size: 10px;
+    }
+  }
+}

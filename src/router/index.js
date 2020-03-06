@@ -12,6 +12,10 @@ Vue.use(VueRouter);
 
 const routes = [
   {
+    path: '*',
+    redirect: '/home'
+  },
+  {
     path: '/home',
     name: 'Home',
     component: Home
@@ -44,7 +48,15 @@ const routes = [
   {
     path: '/admin',
     name: 'Admin',
-    component: Admin
+    component: Admin,
+    beforeEnter: (to, from, next) => {
+      let uid = Vue.$cookies.get('uid');
+      if (uid === 'YYzapfyfwUWwysxR4cUWjv2QNnE2') {
+        next();
+      } else {
+        return router.push('/home');
+      }
+    }
   }
 ];
 

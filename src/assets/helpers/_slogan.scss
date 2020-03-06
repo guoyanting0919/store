@@ -1,6 +1,6 @@
 .about {
   .slogan {
-    @include size(100%, calc(100vh - 60px));
+    @include size(100%, 100vh);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -9,36 +9,32 @@
     overflow: hidden;
 
     &::after {
-      content: 'P&S';
+      content: '美食公道婆';
       position: absolute;
+      font-family: $chFont2;
       @include size(100%);
       font-weight: 900;
       color: black;
       display: flex;
       justify-content: center;
       align-items: center;
-      font-size: 500px;
+      font-size: 250px;
       opacity: 0.1;
-      left: 30px;
 
       @include phone-width {
-        font-size: 150px;
-        left: 10px;
+        writing-mode: vertical-rl;
+        font-size: 122px;
+        letter-spacing: 30px;
       }
     }
   }
 
-  .sloganLine {
-    width: 2px;
-    height: 12%;
-    margin: 10px;
-    background-color: rgb(36, 35, 35);
-  }
-
   h5 {
     writing-mode: vertical-rl;
-    font-family: $chFont;
+    font-family: $chFont2;
+    font-weight: 900;
     line-height: 0;
+    font-size: 1.5rem;
     letter-spacing: 3px;
   }
 }
