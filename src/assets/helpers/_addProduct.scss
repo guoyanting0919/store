@@ -1,0 +1,19 @@
+.addProduct {
+  @include size(100%, auto);
+  padding-top: 60px;
+
+  .addProductForm {
+    width: 70%;
+    margin: auto;
+  }
+
+  .addProductTitle {
+    font-family: $chFont2;
+    font-weight: 900;
+    font-size: 2rem;
+  }
+
+  .uploadInput {
+    width: 70%;
+  }
+}

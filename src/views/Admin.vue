@@ -1,53 +1,195 @@
 <template>
   <div class="admin">
-    <h3>Add Product</h3>
-    <div class="form-group">
-      <input type="text" v-model="name" placeholder="name" class="form-input" />
-      <select v-model="category" name="category" id="category">
-        <option value="man">man</option>
-        <option value="women">women</option>
-        <option value="kid">kid</option>
-        <option value="couple">couple</option>
-      </select>
-      <input type="text" v-model="detail" placeholder="detail" class="form-input" />
-      <input type="text" v-model="mainPic" placeholder="mainPic" class="form-input" />
-      <input type="text" v-model="detailPic1" placeholder="detailPic1" class="form-input" />
-      <input type="text" v-model="detailPic2" placeholder="detailPic2" class="form-input" />
-      <input type="text" v-model="detailPic3" placeholder="detailPic3" class="form-input" />
-      <select v-model="color" name="color" id="color">
-        <option value="#bdc3ce">man</option>
-        <option value="#dbb6b6">women</option>
-        <option value="#eeeea0">kid</option>
-        <option value="#baceb7">couple</option>
-      </select>
-      <input type="text" v-model="price" placeholder="price" class="form-input" />
-      <input type="text" v-model="specialPrice" placeholder="specialPrice" class="form-input" />
+    <!-- 新增餐點 -->
+    <div class="addProduct">
+      <form class="addProductForm">
+        <h3 class="addProductTitle my-2">新增餐點</h3>
+        <div class="form-row">
+          <div class="form-group col-md-4">
+            <label for="storeName">店名</label>
+            <input
+              v-model="storeName"
+              id="storeName"
+              type="text"
+              class="form-control"
+              placeholder="storeName"
+            />
+          </div>
+          <div class="form-group col-md-4">
+            <label for="category">分類</label>
+            <select v-model="category" id="category" class="form-control">
+              <option selected>台灣小吃</option>
+              <option>甜點/飲料</option>
+              <option>精緻燒烤</option>
+              <option>早午餐</option>
+              <option>定食</option>
+              <option>小火鍋</option>
+            </select>
+          </div>
+          <div class="form-group col-md-4">
+            <label for="storeSite">地點</label>
+            <select v-model="storeSite" id="storeSite" class="form-control">
+              <option>台北市</option>
+              <option>基隆市</option>
+              <option>新北市</option>
+              <option>連江縣</option>
+              <option>宜蘭縣</option>
+              <option>新竹市</option>
+              <option>新竹縣</option>
+              <option>桃園市</option>
+              <option>苗栗縣</option>
+              <option>臺中市</option>
+              <option>彰化縣</option>
+              <option>南投縣</option>
+              <option>嘉義市</option>
+              <option>嘉義縣</option>
+              <option>雲林縣</option>
+              <option>臺南市</option>
+              <option>高雄市</option>
+              <option>澎湖縣</option>
+              <option>金門縣</option>
+              <option>屏東縣</option>
+              <option>臺東縣</option>
+              <option>花蓮縣</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-3">
+            <label for="foodCP">餐點 C P</label>
+            <select v-model="foodCP" id="foodCP" class="form-control">
+              <option selected>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+            </select>
+          </div>
+          <div class="form-group col-md-3">
+            <label for="attitude">服務態度</label>
+            <select v-model="attitude" id="attitude" class="form-control">
+              <option selected>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+            </select>
+          </div>
+          <div class="form-group col-md-3">
+            <label for="returnVisit">回訪意願</label>
+            <select v-model="returnVisit" id="returnVisit" class="form-control">
+              <option selected>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+            </select>
+          </div>
+          <div class="form-group col-md-3">
+            <label for="environment">用餐環境</label>
+            <select v-model="environment" id="environment" class="form-control">
+              <option selected>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="storeDetail">詳細說明</label>
+          <br />
+          <textarea v-model="storeDetail" class="w-100" id="storeDetail" cols="30" rows="10"></textarea>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-4 text-center">
+            <input
+              class="uploadInput"
+              type="file"
+              name="file1"
+              ref="file1"
+              @change="uploadImg('file1')"
+            />
+            <div>
+              <button
+                v-if="!pic1"
+                class="btn btn-outline-danger btn-sm mt-1"
+                @click.prevent="onSubmit('file1')"
+              >上傳</button>
+              <button @click.prevent class="btn btn-outline-success btn-sm mt-1" v-else>上傳成功</button>
+            </div>
+          </div>
+          <div class="form-group col-md-4 text-center">
+            <input
+              class="uploadInput"
+              type="file"
+              name="file2"
+              ref="file2"
+              @change="uploadImg('file2')"
+            />
+            <div>
+              <button
+                v-if="!pic2"
+                class="btn btn-outline-danger btn-sm mt-1"
+                @click.prevent="onSubmit('file2')"
+              >上傳</button>
+              <button @click.prevent class="btn btn-outline-success btn-sm mt-1" v-else>上傳成功</button>
+            </div>
+          </div>
+          <div class="form-group col-md-4 text-center">
+            <input
+              class="uploadInput"
+              type="file"
+              name="file3"
+              ref="file3"
+              @change="uploadImg('file3')"
+            />
+            <div>
+              <button
+                v-if="!pic3"
+                class="btn btn-outline-danger btn-sm mt-1"
+                @click.prevent="onSubmit(file3)"
+              >上傳</button>
+              <button @click.prevent class="btn btn-outline-success btn-sm mt-1" v-else>上傳成功</button>
+            </div>
+          </div>
+        </div>
+        <div class="text-right">
+          <button type="submit" class="btn btn-outline-primary" @click.prevent="addProduct">確定新增</button>
+        </div>
+      </form>
     </div>
-    <button class="btn btn-info" @click="addProduct">送出</button>
+    <!-- <button class="btn btn-info" @click="addProduct">送出</button>
     <br />
     <input type="file" name="file" ref="file" @change="uploadImg" />
-    <button @click="onSubmit">upload</button>
-    <h3>Products</h3>
-    <table class="productsTable">
-      <tr>
-        <th>產品名稱</th>
-        <th>產品售價</th>
-        <th class="text-center">刪除/修改</th>
-      </tr>
-      <tr
-        class="productTableRow"
-        v-for="(product,key) in products"
-        :props="key"
-        :key="product.name"
-      >
-        <td>{{product.name}}</td>
-        <td>{{product.price}}</td>
-        <td class="text-center">
-          <button class="btn btn-outline-danger" @click="deleteProduct(key)">DEL</button>
-          <button class="btn btn-outline-info">COM</button>
-        </td>
-      </tr>
-    </table>
+    <button @click="onSubmit">upload</button>-->
+
+    <!-- 產品列表 -->
+    <div>
+      <h3>Products</h3>
+      <table class="productsTable">
+        <tr>
+          <th></th>
+          <th>店名</th>
+          <th>類別</th>
+          <th class="text-center">刪除/修改</th>
+        </tr>
+        <tr
+          class="productTableRow"
+          v-for="(product,key) in products"
+          :props="key"
+          :key="product.name"
+        >
+          <div class="testPic" :style="{backgroundImage:`url(${product.pic1})`}"></div>
+          <td>{{product.storeName}}</td>
+          <td>{{product.category}}</td>
+          <td class="text-center">
+            <button class="btn btn-outline-danger" @click="deleteProduct(key)">DEL</button>
+            <button class="btn btn-outline-info">COM</button>
+          </td>
+        </tr>
+      </table>
+    </div>
   </div>
 </template>
 
@@ -58,31 +200,38 @@ export default {
   data() {
     return {
       products: "",
-      name: "",
+      file1: "",
+      file2: "",
+      file3: "",
+      pic1: "",
+      pic2: "",
+      pic3: "",
+      storeName: "",
       category: "",
-      detail: "",
-      mainPic: "",
-      detailPic1: "",
-      detailPic2: "",
-      detailPic3: "",
-      color: "",
-      price: "",
-      specialPrice: "",
-      file: ""
+      storeSite: "",
+      foodCP: "",
+      attitude: "",
+      returnVisit: "",
+      environment: "",
+      storeDetail: ""
     };
   },
   methods: {
     getProducts() {
       const vm = this;
-      vm.$http.get("http://localhost:3000/admin/getProduct").then(res => {
-        vm.products = res.data;
-      });
+      vm.$http
+        .get("https://aqueous-earth-60961.herokuapp.com/admin/getProduct")
+        .then(res => {
+          vm.products = res.data;
+        });
     },
     deleteProduct(key) {
       const vm = this;
       let id = key;
       vm.$http
-        .delete(`http://localhost:3000/admin/deleteProduct/${id}`)
+        .delete(
+          `https://aqueous-earth-60961.herokuapp.com/admin/deleteProduct/${id}`
+        )
         .then(res => {
           vm.getProducts();
         });
@@ -90,24 +239,39 @@ export default {
     addProduct() {
       const vm = this;
       let product = {
-        name: vm.name,
+        storeName: vm.storeName,
         category: vm.category,
-        detail: vm.detail,
-        mainPic: vm.mainPic,
-        detailPic1: vm.detailPic1,
-        detailPic2: vm.detailPic2,
-        detailPic3: vm.detailPic3,
-        color: vm.color,
-        price: vm.price,
-        specialPrice: vm.specialPrice
+        storeSite: vm.storeSite,
+        foodCP: vm.foodCP,
+        attitude: vm.attitude,
+        returnVisit: vm.returnVisit,
+        environment: vm.environment,
+        storeDetail: vm.storeDetail,
+        pic1: vm.pic1,
+        pic2: vm.pic2,
+        pic3: vm.pic3
       };
       // console.log(product);
       //https://aqueous-earth-60961.herokuapp.com/admin/addProduct
       //http://localhost:3000/admin/addProduct
       this.$http
-        .post("http://localhost:3000/admin/addProduct", product)
+        .post(
+          "https://aqueous-earth-60961.herokuapp.com/admin/addProduct",
+          product
+        )
         .then(res => {
           if (res.data.success) {
+            (vm.pic1 = ""),
+              (vm.pic2 = ""),
+              (vm.pic3 = ""),
+              (vm.storeName = ""),
+              (vm.category = ""),
+              (vm.storeSite = ""),
+              (vm.foodCP = ""),
+              (vm.attitude = ""),
+              (vm.returnVisit = ""),
+              (vm.environment = ""),
+              (vm.storeDetail = "");
             vm.getProducts();
           } else {
             alert("添加產品失敗");
@@ -115,26 +279,47 @@ export default {
           }
         });
     },
-    uploadImg() {
-      this.file = this.$refs.file.files[0];
+    uploadImg(num) {
+      if (num === "file1") {
+        this.file1 = this.$refs.file1.files[0];
+      } else if (num === "file2") {
+        this.file2 = this.$refs.file2.files[0];
+      } else {
+        this.file3 = this.$refs.file3.files[0];
+      }
     },
-    onSubmit() {
-      let formData = new FormData();
-      formData.append("image", this.file); //required
-      axios({
-        method: "POST",
-        url: "https://api.imgur.com/3/upload",
-        data: formData,
+    onSubmit(num) {
+      let config = {
+        withCredentials: false,
         headers: {
-          Authorization: "Client-ID " + "ec3aa32e2ae58a8" //放置你剛剛申請的Client-ID
-        },
-        mimeType: "multipart/form-data"
-      })
+          Authorization: "Client-ID ec3aa32e2ae58a8"
+        }
+      };
+      let formData = new FormData();
+      if (num === "file1") {
+        formData.append("image", this.file1); //required
+      } else if (num === "file2") {
+        formData.append("image", this.file2); //required
+      } else {
+        formData.append("image", this.file3); //required
+      }
+
+      this.$http
+        .post(
+          "https://cors-anywhere.herokuapp.com/https://api.imgur.com/3/image",
+          formData,
+          config
+        )
         .then(res => {
-          console.log(res);
-        })
-        .catch(e => {
-          console.log(e);
+          let imgUrl = res.data.data.link;
+          console.log(imgUrl);
+          if (num === "file1") {
+            this.pic1 = imgUrl;
+          } else if (num === "file2") {
+            this.pic2 = imgUrl;
+          } else {
+            this.pic3 = imgUrl;
+          }
         });
     }
   },

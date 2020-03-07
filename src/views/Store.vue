@@ -32,65 +32,190 @@
     </div>
 
     <!-- storeMain -->
-    <div class="storeMain">
+    <div class="storeMain" v-if="productsFilter">
       <div class="storeProducts row">
-        <div class="storeProduct col-4 mt-4">
-          <div class="productImg"></div>
+        <div
+          class="storeProduct col-4 mt-4"
+          v-for="product in productsFilter"
+          :key="product.storeName"
+        >
+          <div class="productImg" :style="{backgroundImage:`url(${product.pic1})`}"></div>
           <div class="productTxt">
             <div class="productIconBg">
               <i class="fas fa-utensils"></i>
             </div>
-            <h3 class="storeName">小家山食 Homey Café & Meal</h3>
+            <h3 class="storeName">{{product.storeName}}</h3>
             <div class="badgesGroup">
-              <span class="badge badge-pill badge-info">早午餐</span>
-              <span class="badge badge-pill badge-info">桃園市</span>
+              <span class="badge badge-pill badge-dark">{{product.storeSite}}</span>
+              <span
+                class="badge badge-pill"
+                :class="{
+                'badge-info':product.category==='台灣小吃',
+                'badge-Secondary':product.category==='甜點/飲料',
+                'badge-danger':product.category==='精緻燒烤',
+                'badge-warning':product.category==='定食',
+                'badge-primary':product.category==='小火鍋',
+                'badge-success':product.category==='早午餐'}"
+              >{{product.category}}</span>
             </div>
             <div class="productsScore mt-2">
               <div class="productScoreBox">
                 <p class="scoreTitle">餐點 C P</p>
                 <div class="cpScore">
-                  <div class="1star">
+                  <div class="1star" v-if="product.foodCP==='1'">
                     <i class="fas fa-star"></i>
                     <i class="far fa-star"></i>
                     <i class="far fa-star"></i>
                     <i class="far fa-star"></i>
                     <i class="far fa-star"></i>
+                  </div>
+                  <div class="2star" v-if="product.foodCP==='2'">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="far fa-star"></i>
+                    <i class="far fa-star"></i>
+                    <i class="far fa-star"></i>
+                  </div>
+                  <div class="3star" v-if="product.foodCP==='3'">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="far fa-star"></i>
+                    <i class="far fa-star"></i>
+                  </div>
+                  <div class="4star" v-if="product.foodCP==='4'">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="far fa-star"></i>
+                  </div>
+                  <div class="5star" v-if="product.foodCP==='5'">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
                   </div>
                 </div>
               </div>
               <div class="productScoreBox">
                 <p class="scoreTitle">服務態度</p>
-                <div class="cpScore">
-                  <div class="1star">
+                <div class="attitude">
+                  <div class="1star" v-if="product.attitude==='1'">
                     <i class="fas fa-star"></i>
                     <i class="far fa-star"></i>
                     <i class="far fa-star"></i>
                     <i class="far fa-star"></i>
                     <i class="far fa-star"></i>
+                  </div>
+                  <div class="2star" v-if="product.attitude==='2'">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="far fa-star"></i>
+                    <i class="far fa-star"></i>
+                    <i class="far fa-star"></i>
+                  </div>
+                  <div class="3star" v-if="product.attitude==='3'">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="far fa-star"></i>
+                    <i class="far fa-star"></i>
+                  </div>
+                  <div class="4star" v-if="product.attitude==='4'">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="far fa-star"></i>
+                  </div>
+                  <div class="5star" v-if="product.attitude==='5'">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
                   </div>
                 </div>
               </div>
               <div class="productScoreBox">
                 <p class="scoreTitle">回訪意願</p>
-                <div class="cpScore">
-                  <div class="1star">
+                <div class="returnVisit">
+                  <div class="1star" v-if="product.returnVisit==='1'">
                     <i class="fas fa-star"></i>
                     <i class="far fa-star"></i>
                     <i class="far fa-star"></i>
                     <i class="far fa-star"></i>
                     <i class="far fa-star"></i>
                   </div>
+                  <div class="2star" v-if="product.returnVisit==='2'">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="far fa-star"></i>
+                    <i class="far fa-star"></i>
+                    <i class="far fa-star"></i>
+                  </div>
+                  <div class="3star" v-if="product.returnVisit==='3'">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="far fa-star"></i>
+                    <i class="far fa-star"></i>
+                  </div>
+                  <div class="4star" v-if="product.returnVisit==='4'">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="far fa-star"></i>
+                  </div>
+                  <div class="5star" v-if="product.returnVisit==='5'">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                  </div>
                 </div>
               </div>
               <div class="productScoreBox">
                 <p class="scoreTitle">用餐環境</p>
-                <div class="cpScore">
-                  <div class="1star">
+                <div class="environment">
+                  <div class="1star" v-if="product.environment==='1'">
                     <i class="fas fa-star"></i>
                     <i class="far fa-star"></i>
                     <i class="far fa-star"></i>
                     <i class="far fa-star"></i>
                     <i class="far fa-star"></i>
+                  </div>
+                  <div class="2star" v-if="product.environment==='2'">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="far fa-star"></i>
+                    <i class="far fa-star"></i>
+                    <i class="far fa-star"></i>
+                  </div>
+                  <div class="3star" v-if="product.environment==='3'">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="far fa-star"></i>
+                    <i class="far fa-star"></i>
+                  </div>
+                  <div class="4star" v-if="product.environment==='4'">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="far fa-star"></i>
+                  </div>
+                  <div class="5star" v-if="product.environment==='5'">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
                   </div>
                 </div>
               </div>
