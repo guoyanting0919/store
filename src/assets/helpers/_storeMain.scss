@@ -17,7 +17,7 @@
 
   .productImg {
     @include size(200px);
-    border-radius: 15px;
+    border-radius: 8px;
     box-sizing: border-box;
     margin: auto;
     background-position: center center;
@@ -40,7 +40,7 @@
     .fa-utensils {
       font-size: 200px;
       z-index: -1;
-      color: #c7c6c6;
+      color: #f6ffae;
       opacity: 0.6;
     }
   }

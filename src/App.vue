@@ -3,7 +3,7 @@
     <!-- navBar -->
     <div class="navBar">
       <div class="logo">
-        <h3>Food.G_D_P</h3>
+        <h3>美食公道婆</h3>
       </div>
       <div class="responsiveLists" :class="{'show':this.listShow}">
         <router-link class="responsiveList" @click.native="listShow=false" to="/home">

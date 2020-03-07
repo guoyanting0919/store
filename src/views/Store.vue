@@ -2,13 +2,10 @@
   <div class="store">
     <!-- coupon -->
     <div class="container-fluid">
-      <div class="row">
+      <div class="row storeBanner">
         <div class="col-12 p-3">
           <div class="coupon">
-            <h6>
-              單筆消費滿3000，輸入優惠碼
-              <span>OP12</span> ，即刻享有9折優惠!!
-            </h6>
+            <h6>公道婆˙美食街</h6>
           </div>
         </div>
       </div>
@@ -17,16 +14,48 @@
     <!-- storeSideBar -->
     <div class="storeSideBar px-5 py-3">
       <div class="sideBar">
-        <div class="sideBarBg">
-          <a class="sideBarLink" @click="category='all'">All</a>
-          <a class="sideBarLink" @click="category='台灣小吃'">台灣小吃</a>
-          <a class="sideBarLink" @click="category='早午餐'">早午餐</a>
-          <a class="sideBarLink" @click="category='精緻燒烤'">精緻燒烤</a>
-          <div class="sideBarIcon">
-            <i class="fas fa-search"></i>
-            <i class="fas fa-shopping-cart"></i>
+        <a class="sideBarLink" @click="category='所有餐點'">
+          <div :class="{'activeSideBar':category==='所有餐點'}" class="sideBarBox">
+            <span class="sideBarChTitle">所有餐點</span>
+            <span class="sideBarEnTitle">ALL</span>
           </div>
-        </div>
+        </a>
+        <a class="sideBarLink" @click="category='台灣小吃'">
+          <div :class="{'activeSideBar':category==='台灣小吃'}" class="sideBarBox">
+            <span class="sideBarChTitle">台灣小吃</span>
+            <span class="sideBarEnTitle">SNAKE</span>
+          </div>
+        </a>
+        <a class="sideBarLink" @click="category='甜點/飲料'">
+          <div :class="{'activeSideBar':category==='甜點/飲料'}" class="sideBarBox">
+            <span class="sideBarChTitle">甜點/飲料</span>
+            <span class="sideBarEnTitle">DESSERT</span>
+          </div>
+        </a>
+        <a class="sideBarLink" @click="category='精緻燒烤'">
+          <div :class="{'activeSideBar':category==='精緻燒烤'}" class="sideBarBox">
+            <span class="sideBarChTitle">精緻燒烤</span>
+            <span class="sideBarEnTitle">ROAST</span>
+          </div>
+        </a>
+        <a class="sideBarLink" @click="category='定食'">
+          <div :class="{'activeSideBar':category==='定食'}" class="sideBarBox">
+            <span class="sideBarChTitle">定食</span>
+            <span class="sideBarEnTitle">SETMEAL</span>
+          </div>
+        </a>
+        <a class="sideBarLink" @click="category='小火鍋'">
+          <div :class="{'activeSideBar':category==='小火鍋'}" class="sideBarBox">
+            <span class="sideBarChTitle">小火鍋</span>
+            <span class="sideBarEnTitle">HOTPOT</span>
+          </div>
+        </a>
+        <a class="sideBarLink" @click="category='早午餐'">
+          <div :class="{'activeSideBar':category==='早午餐'}" class="sideBarBox">
+            <span class="sideBarChTitle">早午餐</span>
+            <span class="sideBarEnTitle">BRUNCH</span>
+          </div>
+        </a>
       </div>
     </div>
 
@@ -34,7 +63,7 @@
     <div class="storeMain" v-if="productsFilter">
       <div class="storeProducts row">
         <div
-          class="storeProduct col-4 mt-4"
+          class="storeProduct col-4 my-4"
           v-for="product in productsFilter"
           :key="product.storeName"
         >
@@ -50,7 +79,7 @@
                 class="badge badge-pill"
                 :class="{
                 'badge-info':product.category==='台灣小吃',
-                'badge-Secondary':product.category==='甜點/飲料',
+                'badge-secondary':product.category==='甜點/飲料',
                 'badge-danger':product.category==='精緻燒烤',
                 'badge-warning':product.category==='定食',
                 'badge-primary':product.category==='小火鍋',
@@ -232,7 +261,7 @@ export default {
   data() {
     return {
       productsData: "",
-      category: "all"
+      category: "所有餐點"
     };
   },
   computed: {
@@ -241,7 +270,7 @@ export default {
       let arryProducts = Object.values(vm.productsData);
       let data;
       let category = vm.category;
-      if (category === "all") {
+      if (category === "所有餐點") {
         data = arryProducts;
       } else {
         data = arryProducts.filter(product => {

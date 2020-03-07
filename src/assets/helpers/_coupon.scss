@@ -1,19 +1,28 @@
 .store {
+  .storeBanner {
+    background-image: url('./assets/images/bannerG.jpg');
+    background-position: center center;
+    background-size: cover;
+  }
+
   .coupon {
-    @include size(80%, 50px);
+    @include size(80%, 35vh);
     margin: auto;
-    background-color: $bgMainColor;
-    border-radius: 10px;
+    margin-top: 60px;
+    // background-color: $bgMainColor;
+    // border-radius: 10px;
     display: flex;
     align-items: center;
-    justify-content: space-evenly;
-    box-sizing: border-box;
+    justify-content: center;
 
     h6 {
-      font-family: $chFont;
+      font-family: $chFont2;
+      font-size: 5rem;
+      font-weight: 900;
       margin: 0;
-      letter-spacing: 1px;
-      color: #cac7c7;
+      letter-spacing: 5px;
+      color: #313131;
+      text-shadow: 5px 5px 0 rgb(173, 170, 170);
 
       span {
         font-weight: 700;

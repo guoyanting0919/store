@@ -5,6 +5,22 @@
     top: 80px;
     display: inline-block;
     align-self: flex-start;
+
+    &::after {
+      content: 'MENU';
+      position: absolute;
+      @include size(100%);
+      top: 0;
+      font-weight: 700;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      writing-mode: vertical-lr;
+      font-size: 5rem;
+      z-index: -1;
+      color: #b8b3b3;
+      opacity: 0.4;
+    }
   }
 
   .sideBar {
@@ -13,60 +29,42 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    background-image: url('./assets/images/banner3.jpg');
-    background-position: -106% 50%;
-    background-size: cover;
-    position: relative;
-    border-radius: 10px;
-
-    &::before {
-      content: '';
-      position: absolute;
-      @include size(90%);
-      border: 2px solid #cac7c7;
-      border-radius: 10px;
-    }
-  }
-
-  .sideBarBg {
-    background-color: rgba(0, 0, 0, 0.6);
-    @include size(100%, 350px);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-
-    border-radius: 10px;
+    padding-left: 3rem;
   }
 
   .sideBarLink {
     z-index: 1;
-    color: #cac7c7;
-    font-size: 20px;
+    width: 100%;
+    font-family: $chFont2;
+    font-weight: 900;
+    color: black;
+    font-size: 24px;
     margin: 5px 0;
-    border-bottom: 1px solid #cac7c7;
     cursor: pointer;
     transition: 0.4s;
+    text-decoration: none;
 
-    &:hover {
-      text-decoration: none;
-      transform: translateY(-3px);
-      color: #cac7c7;
+    &:hover .sideBarEnTitle {
+      opacity: 1;
     }
   }
 
-  .sideBarIcon {
-    position: absolute;
-    top: 10%;
-    color: #cac7c7;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
+  .sideBarBox {
+    text-align: left;
+  }
 
-    i {
-      margin: 10px;
-      font-size: 20px;
-    }
+  .sideBarChTitle {
+    margin-right: 10px;
+    transition: 0.5s;
+  }
+
+  .sideBarEnTitle {
+    font-size: 16px;
+    transition: 0.5s;
+    opacity: 0;
+  }
+
+  .sideBarBox.activeSideBar .sideBarEnTitle {
+    opacity: 1 !important;
   }
 }

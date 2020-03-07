@@ -51,7 +51,7 @@ const routes = [
     component: Admin,
     beforeEnter: (to, from, next) => {
       let uid = Vue.$cookies.get('uid');
-      if (uid === 'YYzapfyfwUWwysxR4cUWjv2QNnE2') {
+      if (uid === 'ZGaGxGQbcUf6IZn60PSO6opQHax2') {
         next();
       } else {
         return router.push('/home');
