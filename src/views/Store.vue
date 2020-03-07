@@ -19,10 +19,9 @@
       <div class="sideBar">
         <div class="sideBarBg">
           <a class="sideBarLink" @click="category='all'">All</a>
-          <a class="sideBarLink" @click="category='man'">Man</a>
-          <a class="sideBarLink" @click="category='women'">Women</a>
-          <a class="sideBarLink" @click="category='kid'">Child</a>
-          <a class="sideBarLink" @click="category='couple'">Couple</a>
+          <a class="sideBarLink" @click="category='台灣小吃'">台灣小吃</a>
+          <a class="sideBarLink" @click="category='早午餐'">早午餐</a>
+          <a class="sideBarLink" @click="category='精緻燒烤'">精緻燒烤</a>
           <div class="sideBarIcon">
             <i class="fas fa-search"></i>
             <i class="fas fa-shopping-cart"></i>

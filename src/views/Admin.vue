@@ -220,7 +220,7 @@ export default {
     getProducts() {
       const vm = this;
       vm.$http
-        .get("https://aqueous-earth-60961.herokuapp.com/admin/getProduct")
+        .get("https://aqueous-earth-60961.herokuapp.com/products/products")
         .then(res => {
           vm.products = res.data;
         });
@@ -251,13 +251,17 @@ export default {
         pic2: vm.pic2,
         pic3: vm.pic3
       };
+      let config = {
+        withCredentials: true
+      };
       // console.log(product);
       //https://aqueous-earth-60961.herokuapp.com/admin/addProduct
       //http://localhost:3000/admin/addProduct
       this.$http
         .post(
           "https://aqueous-earth-60961.herokuapp.com/admin/addProduct",
-          product
+          product,
+          config
         )
         .then(res => {
           if (res.data.success) {
