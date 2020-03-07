@@ -199,6 +199,7 @@ export default {
   name: "admin",
   data() {
     return {
+      token: this.$cookies.get("token"),
       products: "",
       file1: "",
       file2: "",
@@ -228,9 +229,13 @@ export default {
     deleteProduct(key) {
       const vm = this;
       let id = key;
+      let user = {
+        token: vm.token
+      };
       vm.$http
-        .delete(
-          `https://aqueous-earth-60961.herokuapp.com/admin/deleteProduct/${id}`
+        .post(
+          `https://aqueous-earth-60961.herokuapp.com/admin/deleteProduct/${id}`,
+          user
         )
         .then(res => {
           vm.getProducts();
@@ -249,7 +254,8 @@ export default {
         storeDetail: vm.storeDetail,
         pic1: vm.pic1,
         pic2: vm.pic2,
-        pic3: vm.pic3
+        pic3: vm.pic3,
+        token: vm.token
       };
       let config = {
         withCredentials: true
