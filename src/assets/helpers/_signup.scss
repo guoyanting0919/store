@@ -1,5 +1,5 @@
 .signup {
-  @include size(100%, calc(100vh - 60px));
+  @include size(100%, 100vh);
   display: flex;
   justify-content: center;
   align-items: center;

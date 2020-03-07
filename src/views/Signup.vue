@@ -17,7 +17,7 @@
         <input
           v-model="password"
           id="password"
-          type="text"
+          type="password"
           placeholder="●●●●●●●●●"
           autocomplete="off"
         />

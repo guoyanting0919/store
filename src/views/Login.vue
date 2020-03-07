@@ -4,11 +4,23 @@
       <h2>LOGIN</h2>
       <div class="inputBox">
         <label for="userName">Username:</label>
-        <input v-model="userName" id="userName" type="text" placeholder="example@gmail.com" />
+        <input
+          autocomplete="off"
+          v-model="userName"
+          id="userName"
+          type="text"
+          placeholder="example@gmail.com"
+        />
       </div>
       <div class="inputBox">
         <label for="password">Password:</label>
-        <input v-model="password" id="password" type="text" placeholder="●●●●●●●●●" />
+        <input
+          autocomplete="off"
+          v-model="password"
+          id="password"
+          type="password"
+          placeholder="●●●●●●●●●"
+        />
       </div>
       <button class="loginHandler" @click="loginHandler">Sign in</button>
       <p class="signUpTxt">
