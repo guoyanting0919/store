@@ -3,7 +3,8 @@
     <!-- 新增餐點 -->
     <div class="addProduct">
       <form class="addProductForm">
-        <h3 class="addProductTitle my-2">新增餐點</h3>
+        <h3 class="addProductTitle my-2">{{addOrUpdate}}</h3>
+        <h6 class="text-right backToAdd" v-if="addOrUpdate==='修改餐點'" @click="backToAdd">返回新增餐點</h6>
         <div class="form-row">
           <div class="form-group col-md-4">
             <label for="storeName">店名</label>
@@ -101,7 +102,7 @@
           <br />
           <textarea v-model="storeDetail" class="w-100" id="storeDetail" cols="30" rows="10"></textarea>
         </div>
-        <div class="form-row">
+        <div class="form-row" style="position:relative" ref="loaderFile1">
           <div class="form-group col-md-4 text-center">
             <input
               class="uploadInput"
@@ -155,7 +156,18 @@
           </div>
         </div>
         <div class="text-right">
-          <button type="submit" class="btn btn-outline-primary" @click.prevent="addProduct">確定新增</button>
+          <button
+            v-if="addOrUpdate==='新增餐點'"
+            type="submit"
+            class="btn btn-outline-primary"
+            @click.prevent="addProduct"
+          >確定新增</button>
+          <button
+            v-else
+            type="submit"
+            class="btn btn-outline-primary"
+            @click.prevent="updateProduct"
+          >確定修改</button>
         </div>
       </form>
     </div>
@@ -181,7 +193,7 @@
           <td>{{product.category}}</td>
           <td class="text-center">
             <button class="btn btn-outline-danger" @click="deleteProduct(key)">DEL</button>
-            <button class="btn btn-outline-info">COM</button>
+            <button class="btn btn-outline-info" @click="commitProduct(product)">COM</button>
           </td>
         </tr>
       </table>
@@ -196,6 +208,7 @@ export default {
   data() {
     return {
       token: this.$cookies.get("token"),
+      addOrUpdate: "新增餐點",
       products: "",
       file1: "",
       file2: "",
@@ -210,7 +223,8 @@ export default {
       attitude: "",
       returnVisit: "",
       environment: "",
-      storeDetail: ""
+      storeDetail: "",
+      productId: ""
     };
   },
   methods: {
@@ -277,8 +291,11 @@ export default {
               (vm.attitude = ""),
               (vm.returnVisit = ""),
               (vm.environment = ""),
-              (vm.storeDetail = "");
-            vm.getProducts();
+              (vm.storeDetail = ""),
+              (vm.file1 = ""),
+              (vm.file2 = ""),
+              (vm.file3 = ""),
+              vm.getProducts();
           } else {
             alert("添加產品失敗");
             this.$router.push("/home");
@@ -295,6 +312,11 @@ export default {
       }
     },
     onSubmit(num) {
+      const vm = this;
+      let loader = vm.$loading.show({
+        isFullPage: false,
+        container: vm.$refs.loaderFile1
+      });
       let config = {
         withCredentials: false,
         headers: {
@@ -318,6 +340,7 @@ export default {
         )
         .then(res => {
           let imgUrl = res.data.data.link;
+          loader.hide();
           console.log(imgUrl);
           if (num === "file1") {
             this.pic1 = imgUrl;
@@ -325,6 +348,67 @@ export default {
             this.pic2 = imgUrl;
           } else {
             this.pic3 = imgUrl;
+          }
+        });
+    },
+    backToAdd() {
+      const vm = this;
+      vm.addOrUpdate = "新增餐點";
+      vm.storeName = "";
+      vm.category = "";
+      vm.storeSite = "";
+      vm.foodCP = "";
+      vm.attitude = "";
+      vm.returnVisit = "";
+      vm.environment = "";
+      vm.storeDetail = "";
+      vm.pic1 = "";
+      vm.pic2 = "";
+      vm.pic3 = "";
+    },
+    commitProduct(product) {
+      const vm = this;
+      window.scrollTo(0, 0);
+      vm.addOrUpdate = "修改餐點";
+      vm.storeName = product.storeName;
+      vm.category = product.category;
+      vm.storeSite = product.storeSite;
+      vm.foodCP = product.foodCP;
+      vm.attitude = product.attitude;
+      vm.returnVisit = product.returnVisit;
+      vm.environment = product.environment;
+      vm.storeDetail = product.storeDetail;
+      vm.pic1 = product.pic1;
+      vm.pic2 = product.pic2;
+      vm.pic3 = product.pic3;
+      vm.productId = product.productId;
+    },
+    updateProduct() {
+      const vm = this;
+      let product = {
+        storeName: vm.storeName,
+        category: vm.category,
+        storeSite: vm.storeSite,
+        foodCP: vm.foodCP,
+        attitude: vm.attitude,
+        returnVisit: vm.returnVisit,
+        environment: vm.environment,
+        storeDetail: vm.storeDetail,
+        pic1: vm.pic1,
+        pic2: vm.pic2,
+        pic3: vm.pic3,
+        productId: vm.productId,
+        token: vm.token
+      };
+      vm.$http
+        .post(
+          "https://aqueous-earth-60961.herokuapp.com/admin/updateProduct",
+          product
+        )
+        .then(res => {
+          if (res.data === "success") {
+            vm.backToAdd();
+            vm.getProducts();
           }
         });
     }

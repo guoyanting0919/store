@@ -1,7 +1,7 @@
 <template>
   <div class="store">
     <!-- coupon -->
-    <div class="container-fluid">
+    <div class="container-fluid mb-4">
       <div class="row storeBanner">
         <div class="col-12 p-3">
           <div class="coupon">
@@ -74,7 +74,15 @@
           v-for="product in productsFilter"
           :key="product.storeName"
         >
-          <div class="productImg" :style="{backgroundImage:`url(${product.pic1})`}"></div>
+          <span class="hook productHover"></span>
+          <span class="hook productHover"></span>
+          <span class="hook productHover"></span>
+          <span class="hook productHover"></span>
+          <span class="hook productHover"></span>
+          <span class="hook productHover"></span>
+          <span class="hook productHover"></span>
+          <span class="hook productHover"></span>
+          <div class="productImg mt-4" :style="{backgroundImage:`url(${product.pic1})`}"></div>
           <div class="productTxt">
             <div class="productIconBg">
               <i class="fas fa-utensils"></i>
@@ -291,11 +299,13 @@ export default {
   methods: {
     getProducts() {
       const vm = this;
-      this.$http
+      let loader = vm.$loading.show();
+      vm.$http
         .get("https://aqueous-earth-60961.herokuapp.com/products/products")
         .then(res => {
           vm.productsData = res.data;
           console.log("OK");
+          loader.hide();
         });
     }
   },
