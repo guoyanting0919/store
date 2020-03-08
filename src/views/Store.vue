@@ -14,43 +14,43 @@
     <!-- storeSideBar -->
     <div class="storeSideBar px-5 py-3">
       <div class="sideBar">
-        <a class="sideBarLink" @click="category='所有餐點'">
+        <a class="sideBarLink" @click.prevent="category='所有餐點'">
           <div :class="{'activeSideBar':category==='所有餐點'}" class="sideBarBox">
             <span class="sideBarChTitle">所有餐點</span>
             <span class="sideBarEnTitle">ALL</span>
           </div>
         </a>
-        <a class="sideBarLink" @click="category='台灣小吃'">
+        <a class="sideBarLink" @click.prevent="category='台灣小吃'">
           <div :class="{'activeSideBar':category==='台灣小吃'}" class="sideBarBox">
             <span class="sideBarChTitle">台灣小吃</span>
             <span class="sideBarEnTitle">SNAKE</span>
           </div>
         </a>
-        <a class="sideBarLink" @click="category='甜點/飲料'">
+        <a class="sideBarLink" @click.prevent="category='甜點/飲料'">
           <div :class="{'activeSideBar':category==='甜點/飲料'}" class="sideBarBox">
             <span class="sideBarChTitle">甜點/飲料</span>
             <span class="sideBarEnTitle">DESSERT</span>
           </div>
         </a>
-        <a class="sideBarLink" @click="category='精緻燒烤'">
+        <a class="sideBarLink" @click.prevent="category='精緻燒烤'">
           <div :class="{'activeSideBar':category==='精緻燒烤'}" class="sideBarBox">
             <span class="sideBarChTitle">精緻燒烤</span>
             <span class="sideBarEnTitle">ROAST</span>
           </div>
         </a>
-        <a class="sideBarLink" @click="category='定食'">
+        <a class="sideBarLink" @click.prevent="category='定食'">
           <div :class="{'activeSideBar':category==='定食'}" class="sideBarBox">
             <span class="sideBarChTitle">定食</span>
             <span class="sideBarEnTitle">SETMEAL</span>
           </div>
         </a>
-        <a class="sideBarLink" @click="category='小火鍋'">
+        <a class="sideBarLink" @click.prevent="category='小火鍋'">
           <div :class="{'activeSideBar':category==='小火鍋'}" class="sideBarBox">
             <span class="sideBarChTitle">小火鍋</span>
             <span class="sideBarEnTitle">HOTPOT</span>
           </div>
         </a>
-        <a class="sideBarLink" @click="category='早午餐'">
+        <a class="sideBarLink" @click.prevent="category='早午餐'">
           <div :class="{'activeSideBar':category==='早午餐'}" class="sideBarBox">
             <span class="sideBarChTitle">早午餐</span>
             <span class="sideBarEnTitle">BRUNCH</span>
@@ -60,8 +60,15 @@
     </div>
 
     <!-- storeMain -->
-    <div class="storeMain" v-if="productsFilter">
-      <div class="storeProducts row">
+    <div class="storeMain">
+      <transition-group
+        v-if="productsFilter"
+        class="storeProducts row"
+        name="list"
+        tag="div"
+        mode="out-in"
+        appear
+      >
         <div
           class="storeProduct col-4 my-4"
           v-for="product in productsFilter"
@@ -250,7 +257,7 @@
             </div>
           </div>
         </div>
-      </div>
+      </transition-group>
     </div>
   </div>
 </template>

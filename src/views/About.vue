@@ -15,16 +15,12 @@
     </div>
 
     <!-- history -->
-    <div class="history">
-      <div class="historyImgBox">
-        <div class="historyImgCover">
-          <h4 class="historyTxt">
-            「吃到一半臨時決定來創帳號，哈。」
-            <br />
-            <span>2019.12.09</span>
-          </h4>
-        </div>
-      </div>
+    <div ref="history" class="history">
+      <h4 ref="historyTxt" class="historyTxt">
+        「吃到一半臨時決定來創帳號，哈。」
+        <br />
+        <span>2019.12.09</span>
+      </h4>
     </div>
 
     <!-- snake -->
@@ -67,201 +63,203 @@
     </div>
     <!-- score -->
     <div class="score">
-      <div class="scoreMainTitle">透過CARE標準評鑑，在乎您每次的用餐體驗。</div>
-      <div class="costPerformance">
-        <div class="iconBox">
-          <i class="fas fa-dollar-sign"></i>
-          <h4 class="scoreEnTitle">costPerformance</h4>
-          <h3 class="scoreChTitle">CP值</h3>
+      <div class="scoreCover">
+        <div class="scoreMainTitle">透過CARE標準評鑑，在乎您的用餐體驗。</div>
+        <div class="costPerformance">
+          <div class="iconBox">
+            <i class="fas fa-dollar-sign"></i>
+            <h4 class="scoreEnTitle">costPerformance</h4>
+            <h3 class="scoreChTitle">CP值</h3>
+          </div>
+          <div class="stars mt-4">
+            <p class="scoreDetail">
+              又貴又難吃
+              <i class="fas fa-star"></i>
+              <i class="far fa-star"></i>
+              <i class="far fa-star"></i>
+              <i class="far fa-star"></i>
+              <i class="far fa-star"></i>
+            </p>
+            <p class="scoreDetail">
+              低價難吃/高價食物普普
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="far fa-star"></i>
+              <i class="far fa-star"></i>
+              <i class="far fa-star"></i>
+            </p>
+            <p class="scoreDetail">
+              正常水平如同10元麥香
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="far fa-star"></i>
+              <i class="far fa-star"></i>
+            </p>
+            <p class="scoreDetail">
+              一周可以吃4天且不會吃土
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="far fa-star"></i>
+            </p>
+            <p class="scoreDetail">
+              吃土也要吃
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </p>
+          </div>
         </div>
-        <div class="stars mt-4">
-          <p class="scoreDetail">
-            又貴又難吃
-            <i class="fas fa-star"></i>
-            <i class="far fa-star"></i>
-            <i class="far fa-star"></i>
-            <i class="far fa-star"></i>
-            <i class="far fa-star"></i>
-          </p>
-          <p class="scoreDetail">
-            低價難吃/高價食物普普
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="far fa-star"></i>
-            <i class="far fa-star"></i>
-            <i class="far fa-star"></i>
-          </p>
-          <p class="scoreDetail">
-            正常水平如同10元麥香
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="far fa-star"></i>
-            <i class="far fa-star"></i>
-          </p>
-          <p class="scoreDetail">
-            一周可以吃4天且不會吃土
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="far fa-star"></i>
-          </p>
-          <p class="scoreDetail">
-            吃土也要吃
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-          </p>
+        <div class="attitude">
+          <div class="iconBox">
+            <i class="fas fa-hands"></i>
+            <h4 class="scoreEnTitle">attitude</h4>
+            <h3 class="scoreChTitle">服務態度</h3>
+          </div>
+          <div class="stars mt-4">
+            <p class="scoreDetail">
+              不是口氣差就是沒刷牙
+              <i class="fas fa-star"></i>
+              <i class="far fa-star"></i>
+              <i class="far fa-star"></i>
+              <i class="far fa-star"></i>
+              <i class="far fa-star"></i>
+            </p>
+            <p class="scoreDetail">
+              愛理不理，忘東忘西
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="far fa-star"></i>
+              <i class="far fa-star"></i>
+              <i class="far fa-star"></i>
+            </p>
+            <p class="scoreDetail">
+              請，謝謝，對不起
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="far fa-star"></i>
+              <i class="far fa-star"></i>
+            </p>
+            <p class="scoreDetail">
+              還會跟你聊天打屁
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="far fa-star"></i>
+            </p>
+            <p class="scoreDetail">
+              以為自己是皇帝
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </p>
+          </div>
         </div>
-      </div>
-      <div class="attitude">
-        <div class="iconBox">
-          <i class="fas fa-hands"></i>
-          <h4 class="scoreEnTitle">attitude</h4>
-          <h3 class="scoreChTitle">服務態度</h3>
+        <div class="returnVisit">
+          <div class="iconBox">
+            <i class="fas fa-car"></i>
+            <h4 class="scoreEnTitle">returnVisit</h4>
+            <h3 class="scoreChTitle">回訪意願</h3>
+          </div>
+          <div class="stars mt-4">
+            <p class="scoreDetail">
+              免費我也不要去
+              <i class="fas fa-star"></i>
+              <i class="far fa-star"></i>
+              <i class="far fa-star"></i>
+              <i class="far fa-star"></i>
+              <i class="far fa-star"></i>
+            </p>
+            <p class="scoreDetail">
+              生日1折優惠給你1次機會
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="far fa-star"></i>
+              <i class="far fa-star"></i>
+              <i class="far fa-star"></i>
+            </p>
+            <p class="scoreDetail">
+              路過看到會想進去
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="far fa-star"></i>
+              <i class="far fa-star"></i>
+            </p>
+            <p class="scoreDetail">
+              不然下次聚會辦在這裡
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="far fa-star"></i>
+            </p>
+            <p class="scoreDetail">
+              颱風天出門也願意
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </p>
+          </div>
         </div>
-        <div class="stars mt-4">
-          <p class="scoreDetail">
-            不是口氣差就是沒刷牙
-            <i class="fas fa-star"></i>
-            <i class="far fa-star"></i>
-            <i class="far fa-star"></i>
-            <i class="far fa-star"></i>
-            <i class="far fa-star"></i>
-          </p>
-          <p class="scoreDetail">
-            愛理不理，忘東忘西
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="far fa-star"></i>
-            <i class="far fa-star"></i>
-            <i class="far fa-star"></i>
-          </p>
-          <p class="scoreDetail">
-            請，謝謝，對不起
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="far fa-star"></i>
-            <i class="far fa-star"></i>
-          </p>
-          <p class="scoreDetail">
-            還會跟你聊天打屁
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="far fa-star"></i>
-          </p>
-          <p class="scoreDetail">
-            以為自己是皇帝
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-          </p>
-        </div>
-      </div>
-      <div class="returnVisit">
-        <div class="iconBox">
-          <i class="fas fa-car"></i>
-          <h4 class="scoreEnTitle">returnVisit</h4>
-          <h3 class="scoreChTitle">回訪意願</h3>
-        </div>
-        <div class="stars mt-4">
-          <p class="scoreDetail">
-            免費我也不要去
-            <i class="fas fa-star"></i>
-            <i class="far fa-star"></i>
-            <i class="far fa-star"></i>
-            <i class="far fa-star"></i>
-            <i class="far fa-star"></i>
-          </p>
-          <p class="scoreDetail">
-            生日1折優惠給你1次機會
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="far fa-star"></i>
-            <i class="far fa-star"></i>
-            <i class="far fa-star"></i>
-          </p>
-          <p class="scoreDetail">
-            路過看到會想進去
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="far fa-star"></i>
-            <i class="far fa-star"></i>
-          </p>
-          <p class="scoreDetail">
-            不然下次聚會辦在這裡
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="far fa-star"></i>
-          </p>
-          <p class="scoreDetail">
-            颱風天出門也願意
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-          </p>
-        </div>
-      </div>
-      <div class="environment">
-        <div class="iconBox">
-          <i class="fas fa-utensils"></i>
-          <h4 class="scoreEnTitle">environment</h4>
-          <h3 class="scoreChTitle">用餐環境</h3>
-        </div>
-        <div class="stars mt-4">
-          <p class="scoreDetail">
-            昆蟲實境秀
-            <i class="fas fa-star"></i>
-            <i class="far fa-star"></i>
-            <i class="far fa-star"></i>
-            <i class="far fa-star"></i>
-            <i class="far fa-star"></i>
-          </p>
-          <p class="scoreDetail">
-            隔壁桌可以安靜點嗎?
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="far fa-star"></i>
-            <i class="far fa-star"></i>
-            <i class="far fa-star"></i>
-          </p>
-          <p class="scoreDetail">
-            沒座位，只能外帶
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="far fa-star"></i>
-            <i class="far fa-star"></i>
-          </p>
-          <p class="scoreDetail">
-            鳥正面撞到玻璃
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="far fa-star"></i>
-          </p>
-          <p class="scoreDetail">
-            雙方家長第一次見面，這裡可以
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-          </p>
+        <div class="environment">
+          <div class="iconBox">
+            <i class="fas fa-utensils"></i>
+            <h4 class="scoreEnTitle">environment</h4>
+            <h3 class="scoreChTitle">用餐環境</h3>
+          </div>
+          <div class="stars mt-4">
+            <p class="scoreDetail">
+              昆蟲實境秀
+              <i class="fas fa-star"></i>
+              <i class="far fa-star"></i>
+              <i class="far fa-star"></i>
+              <i class="far fa-star"></i>
+              <i class="far fa-star"></i>
+            </p>
+            <p class="scoreDetail">
+              隔壁桌可以安靜點嗎?
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="far fa-star"></i>
+              <i class="far fa-star"></i>
+              <i class="far fa-star"></i>
+            </p>
+            <p class="scoreDetail">
+              沒座位，只能外帶
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="far fa-star"></i>
+              <i class="far fa-star"></i>
+            </p>
+            <p class="scoreDetail">
+              鳥正面撞到玻璃
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="far fa-star"></i>
+            </p>
+            <p class="scoreDetail">
+              雙方家長第一次見面，這裡可以
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </p>
+          </div>
         </div>
       </div>
     </div>
@@ -312,7 +310,6 @@ import $ from "jquery";
 
 export default {
   mounted() {
-    // console.log(this.$refs.may.offsetHeight);
     setTimeout(() => {
       this.$refs.txt1.style.opacity = 1;
       this.$refs.txt2.style.opacity = 1;

@@ -1,31 +1,24 @@
 .about {
   .history {
+    @include size(100%, 30vh);
     position: relative;
-    height: auto;
     background: white;
     display: flex;
     flex-wrap: wrap;
-  }
-
-  .historyImgCover {
-    min-width: 100%;
-    height: 100vh;
-    background-image: linear-gradient(to left, #e2924c, #eac8a4);
-    opacity: 0.75;
     display: flex;
     justify-content: center;
     align-items: center;
-  }
+    transition: 0.7s;
 
-  .historyImgBox {
-    @include size(100%);
-    background-image: url('./assets/images/taiwanFood.jpg');
-    background-attachment: fixed;
-    background-position: center center;
-    background-size: cover;
-    background-repeat: no-repeat;
-  }
+    &:hover {
+      background: black;
+    }
 
+    &:hover .historyTxt {
+      color: white;
+      border: 3px solid white;
+    }
+  }
   .historyTxt {
     font-family: $chFont2;
     font-weight: 700;
@@ -33,7 +26,10 @@
     margin: 0;
     display: flex;
     flex-direction: column;
-    align-items: flex-end;
+    align-items: center;
+    border: 3px solid black;
+    padding: 20px;
+    transition: 0.7s;
     //手機
     @include phone-width {
       font-size: 1.3rem;

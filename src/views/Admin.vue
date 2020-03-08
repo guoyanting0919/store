@@ -159,10 +159,6 @@
         </div>
       </form>
     </div>
-    <!-- <button class="btn btn-info" @click="addProduct">送出</button>
-    <br />
-    <input type="file" name="file" ref="file" @change="uploadImg" />
-    <button @click="onSubmit">upload</button>-->
 
     <!-- 產品列表 -->
     <div>
