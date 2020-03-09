@@ -292,6 +292,7 @@ export default {
           return product.category === category;
         });
       }
+      data.reverse();
 
       return data;
     }
