@@ -192,7 +192,7 @@
           <td>{{product.storeName}}</td>
           <td>{{product.category}}</td>
           <td class="text-center">
-            <button class="btn btn-outline-danger" @click="deleteProduct(key)">DEL</button>
+            <button class="btn btn-outline-danger" @click="deleteProduct(key,product.storeName)">DEL</button>
             <button class="btn btn-outline-info" @click="commitProduct(product)">COM</button>
           </td>
         </tr>
@@ -236,20 +236,25 @@ export default {
           vm.products = res.data;
         });
     },
-    deleteProduct(key) {
+    deleteProduct(key, name) {
       const vm = this;
       let id = key;
       let user = {
         token: vm.token
       };
-      vm.$http
-        .post(
-          `https://aqueous-earth-60961.herokuapp.com/admin/deleteProduct/${id}`,
-          user
-        )
-        .then(res => {
-          vm.getProducts();
-        });
+      let r = confirm(`確認刪除${name}?`);
+      if (r) {
+        vm.$http
+          .post(
+            `https://aqueous-earth-60961.herokuapp.com/admin/deleteProduct/${id}`,
+            user
+          )
+          .then(res => {
+            vm.getProducts();
+          });
+      } else {
+        alert("已取消");
+      }
     },
     addProduct() {
       const vm = this;

@@ -8,6 +8,19 @@
     align-items: center;
   }
 
+  .scrollDown {
+    position: absolute;
+    bottom: 10%;
+
+    .fa-angle-double-down {
+      font-size: 2rem;
+      color: white;
+      transition: 0.8s;
+      opacity: 0;
+      animation: 'scrollDownAni' 1.5s infinite;
+    }
+  }
+
   .bannerImg {
     @include size(100%);
     background-image: url('./assets/images/banner.jpg');

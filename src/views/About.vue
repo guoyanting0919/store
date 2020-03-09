@@ -12,6 +12,9 @@
           </div>
         </div>
       </div>
+      <div class="scrollDown">
+        <i ref="scrollDown" class="fas fa-angle-double-down"></i>
+      </div>
     </div>
 
     <!-- history -->
@@ -284,7 +287,7 @@
               </div>
               <div class="col-12 col-lg-4 footerInfo">
                 <p>
-                  <i class="fas fa-map-marker-alt"></i>地址:桃園市蘆竹區福祿一街189號
+                  <i @click="toAdmin" class="fas fa-map-marker-alt"></i>地址:桃園市蘆竹區福祿一街189號
                 </p>
                 <p>
                   <i class="fas fa-phone"></i>電話:03-3491223
@@ -310,6 +313,9 @@ import $ from "jquery";
 
 export default {
   mounted() {
+    setTimeout(() => {
+      this.$refs.scrollDown.style.opacity = 0.8;
+    }, 4500);
     setTimeout(() => {
       this.$refs.txt1.style.opacity = 1;
       this.$refs.txt2.style.opacity = 1;
@@ -348,6 +354,11 @@ export default {
     };
     Pb.opacityZero(".txtAniToggle");
     Pb.appear(".txtAniToggle", 1500);
+  },
+  methods: {
+    toAdmin() {
+      this.$router.push("/admin");
+    }
   }
 };
 </script>
