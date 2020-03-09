@@ -4,6 +4,8 @@ import router from './router';
 import store from './store';
 import axios from 'axios';
 import VueAxios from 'vue-axios';
+import 'bootstrap';
+import 'bootstrap/dist/css/bootstrap.css';
 import VueCookies from 'vue-cookies';
 import VueLoading from 'vue-loading-overlay';
 import 'vue-loading-overlay/dist/vue-loading.css';

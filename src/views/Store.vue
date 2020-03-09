@@ -73,6 +73,7 @@
           class="storeProduct col-4 my-4"
           v-for="product in productsFilter"
           :key="product.storeName"
+          @click="openModal(product)"
         >
           <span class="hook productHover"></span>
           <span class="hook productHover"></span>
@@ -267,16 +268,222 @@
         </div>
       </transition-group>
     </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="productModal" tabindex="-1" role="dialog">
+      <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalCenterTitle">{{modalProduct.storeName}}</h5>
+            <button type="button" class="close" data-dismiss="modal">
+              <span @click="n=0">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="container">
+              <div class="row">
+                <div class="col-5">
+                  <div
+                    ref="modalImg"
+                    class="modalImg"
+                    :style="{backgroundImage:`url(${modalProduct.pic1})`}"
+                  >
+                    <button class="nextPic" v-if="modalProduct.pic2" @click="nextPic">
+                      <i class="fas fa-chevron-right"></i>
+                    </button>
+                    <button class="prePic" v-if="modalProduct.pic2" @click="prePic">
+                      <i class="fas fa-chevron-right"></i>
+                    </button>
+                  </div>
+                </div>
+                <div class="col-7">
+                  <div class="productsScore mt-2">
+                    <div class="productScoreBox">
+                      <p class="scoreTitle">餐點 C P</p>
+                      <div class="cpScore">
+                        <div class="1star" v-if="modalProduct.foodCP==='1'">
+                          <i class="fas fa-star"></i>
+                          <i class="far fa-star"></i>
+                          <i class="far fa-star"></i>
+                          <i class="far fa-star"></i>
+                          <i class="far fa-star"></i>
+                        </div>
+                        <div class="2star" v-if="modalProduct.foodCP==='2'">
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <i class="far fa-star"></i>
+                          <i class="far fa-star"></i>
+                          <i class="far fa-star"></i>
+                        </div>
+                        <div class="3star" v-if="modalProduct.foodCP==='3'">
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <i class="far fa-star"></i>
+                          <i class="far fa-star"></i>
+                        </div>
+                        <div class="4star" v-if="modalProduct.foodCP==='4'">
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <i class="far fa-star"></i>
+                        </div>
+                        <div class="5star" v-if="modalProduct.foodCP==='5'">
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="productScoreBox">
+                      <p class="scoreTitle">服務態度</p>
+                      <div class="attitude">
+                        <div class="1star" v-if="modalProduct.attitude==='1'">
+                          <i class="fas fa-star"></i>
+                          <i class="far fa-star"></i>
+                          <i class="far fa-star"></i>
+                          <i class="far fa-star"></i>
+                          <i class="far fa-star"></i>
+                        </div>
+                        <div class="2star" v-if="modalProduct.attitude==='2'">
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <i class="far fa-star"></i>
+                          <i class="far fa-star"></i>
+                          <i class="far fa-star"></i>
+                        </div>
+                        <div class="3star" v-if="modalProduct.attitude==='3'">
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <i class="far fa-star"></i>
+                          <i class="far fa-star"></i>
+                        </div>
+                        <div class="4star" v-if="modalProduct.attitude==='4'">
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <i class="far fa-star"></i>
+                        </div>
+                        <div class="5star" v-if="modalProduct.attitude==='5'">
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="productScoreBox">
+                      <p class="scoreTitle">回訪意願</p>
+                      <div class="returnVisit">
+                        <div class="1star" v-if="modalProduct.returnVisit==='1'">
+                          <i class="fas fa-star"></i>
+                          <i class="far fa-star"></i>
+                          <i class="far fa-star"></i>
+                          <i class="far fa-star"></i>
+                          <i class="far fa-star"></i>
+                        </div>
+                        <div class="2star" v-if="modalProduct.returnVisit==='2'">
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <i class="far fa-star"></i>
+                          <i class="far fa-star"></i>
+                          <i class="far fa-star"></i>
+                        </div>
+                        <div class="3star" v-if="modalProduct.returnVisit==='3'">
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <i class="far fa-star"></i>
+                          <i class="far fa-star"></i>
+                        </div>
+                        <div class="4star" v-if="modalProduct.returnVisit==='4'">
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <i class="far fa-star"></i>
+                        </div>
+                        <div class="5star" v-if="modalProduct.returnVisit==='5'">
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="productScoreBox">
+                      <p class="scoreTitle">用餐環境</p>
+                      <div class="environment">
+                        <div class="1star" v-if="modalProduct.environment==='1'">
+                          <i class="fas fa-star"></i>
+                          <i class="far fa-star"></i>
+                          <i class="far fa-star"></i>
+                          <i class="far fa-star"></i>
+                          <i class="far fa-star"></i>
+                        </div>
+                        <div class="2star" v-if="modalProduct.environment==='2'">
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <i class="far fa-star"></i>
+                          <i class="far fa-star"></i>
+                          <i class="far fa-star"></i>
+                        </div>
+                        <div class="3star" v-if="modalProduct.environment==='3'">
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <i class="far fa-star"></i>
+                          <i class="far fa-star"></i>
+                        </div>
+                        <div class="4star" v-if="modalProduct.environment==='4'">
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <i class="far fa-star"></i>
+                        </div>
+                        <div class="5star" v-if="modalProduct.environment==='5'">
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="storeDetail">{{modalProduct.storeDetail}}</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger">加入收藏</button>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
+import $ from "jquery";
 export default {
   name: "store",
   data() {
     return {
       productsData: "",
-      category: "所有餐點"
+      category: "所有餐點",
+      modalProduct: "",
+      modalImg: [],
+      n: 0
     };
   },
   computed: {
@@ -293,7 +500,6 @@ export default {
         });
       }
       data.reverse();
-
       return data;
     }
   },
@@ -308,6 +514,48 @@ export default {
           console.log("OK");
           loader.hide();
         });
+    },
+    openModal(p) {
+      this.modalProduct = p;
+      this.modalImg = [];
+      let pic1 = this.modalProduct.pic1;
+      let pic2 = this.modalProduct.pic2;
+      let pic3 = this.modalProduct.pic3;
+      let arr = [pic1, pic2, pic3];
+      // this.modalImg = [pic1, pic2, pic3];
+      arr.forEach(item => {
+        if (item) {
+          this.modalImg.push(item);
+        }
+      });
+      $("#productModal").modal("show");
+    },
+    nextPic() {
+      let arrLength = this.modalImg.length;
+      this.n = this.n + 1;
+
+      if (this.n < arrLength) {
+        this.$refs.modalImg.style.backgroundImage = `url(${
+          this.modalImg[this.n]
+        })`;
+      } else {
+        this.n = 0;
+        this.$refs.modalImg.style.backgroundImage = `url(${this.modalImg[0]})`;
+      }
+    },
+    prePic() {
+      let arrLength = this.modalImg.length;
+      if (this.n === 0) {
+        this.n = arrLength - 1;
+        this.$refs.modalImg.style.backgroundImage = `url(${
+          this.modalImg[this.n]
+        })`;
+      } else {
+        this.n = this.n - 1;
+        this.$refs.modalImg.style.backgroundImage = `url(${
+          this.modalImg[this.n]
+        })`;
+      }
     }
   },
   created() {

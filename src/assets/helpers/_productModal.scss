@@ -1,0 +1,67 @@
+#productModal {
+  .storeDetail {
+    color: gray;
+    padding: 10px 20px;
+    height: 200px;
+    line-height: 1.9;
+    overflow: auto;
+  }
+  .modalImg {
+    background-color: wheat;
+    @include size(300px);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: 0.5s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    border-radius: 8px;
+  }
+
+  .modal-title {
+    font-family: $chFont2;
+    font-weight: 900;
+    font-size: 1.5rem;
+  }
+
+  .prePic,
+  .nextPic {
+    position: absolute;
+    background: rgba(0, 0, 0, 0.4);
+    width: 30px;
+    height: 30px;
+    overflow: hidden;
+    border: none;
+    border-radius: 50%;
+    outline: none;
+    transition: 0.5s;
+  }
+
+  .nextPic {
+    top: 50%;
+    right: 10px;
+
+    &:hover {
+      background: rgba(0, 0, 0, 0.7);
+    }
+
+    .fa-chevron-right {
+      color: rgba(255, 255, 255, 0.8);
+    }
+  }
+
+  .prePic {
+    top: 50%;
+    left: 10px;
+    &:hover {
+      background: rgba(0, 0, 0, 0.7);
+    }
+
+    .fa-chevron-right {
+      color: rgba(255, 255, 255, 0.8);
+      transform: rotate(180deg);
+    }
+  }
+}
