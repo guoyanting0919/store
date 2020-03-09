@@ -140,16 +140,17 @@
 .list-enter-active,
 .list-leave-active {
   transition: all 0.8s;
+  /* opacity: 1; */
 }
-.list-enter,
-.list-leave-to {
+.list-enter, .list-leave-to
+/* .list-leave-active for below version 2.1.8 */ {
   opacity: 0;
   transform: translateY(10px);
 }
 
-// .list-leave-active {
-//   position: absolute;
-// }
+.list-leave-active {
+  position: absolute;
+}
 
 .list-enter-to,
 .list-leave {
@@ -160,7 +161,7 @@
   transition: all 0.8s;
 }
 
-.list-leave,
-.list-leave-active {
-  display: none;
-}
+// .list-leave,
+// .list-leave-active {
+//   display: none;
+// }
