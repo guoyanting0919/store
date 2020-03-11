@@ -464,11 +464,43 @@
               </div>
             </div>
           </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-danger">加入收藏</button>
+          <div class="modal-footer" v-if="uid">
+            <button
+              v-if="delOrAdd"
+              @click="addToFavorite(modalProduct)"
+              type="button"
+              class="btn btn-danger"
+            >加入收藏</button>
+            <button
+              v-else
+              @click="delFavorite(modalProduct)"
+              type="button"
+              class="btn btn-secondary"
+            >移除收藏</button>
           </div>
         </div>
       </div>
+    </div>
+
+    <!-- favorite -->
+    <div @click="openFavoriteBox=!openFavoriteBox" class="favorite" v-if="uid">
+      <i class="fas fa-heart"></i>
+      <span class="favoriteLength">{{favoriteLength}}</span>
+    </div>
+
+    <!-- favoriteBox -->
+    <div class="favoriteBox" :class="{'openFavoriteBox':openFavoriteBox}">
+      <ul>
+        <li
+          class="my-1"
+          @click="getFavorite(item)"
+          v-for="(item,key) in userFavoriteFilter"
+          :key="key"
+        >
+          {{item.storeName}}
+          <span class="delFavoriteBtn" @click.stop="delFavorite(item)">&times;</span>
+        </li>
+      </ul>
     </div>
   </div>
 </template>
@@ -483,7 +515,11 @@ export default {
       category: "所有餐點",
       modalProduct: "",
       modalImg: [],
-      n: 0
+      n: 0,
+      uid: $cookies.get("uid"),
+      userFavorite: "",
+      openFavoriteBox: false,
+      delOrAdd: ""
     };
   },
   computed: {
@@ -501,6 +537,22 @@ export default {
       }
       data.reverse();
       return data;
+    },
+    userFavoriteFilter() {
+      let data = Object.values(this.userFavorite);
+      return data;
+    },
+    favoriteLength() {
+      let num = this.userFavoriteFilter.length;
+      return num;
+    },
+    isFavorites() {
+      const vm = this;
+      let arr = vm.userFavoriteFilter;
+      let pArr = arr.map(item => {
+        return item.productId;
+      });
+      return pArr;
     }
   },
   methods: {
@@ -511,12 +563,17 @@ export default {
         .get("https://aqueous-earth-60961.herokuapp.com/products/products")
         .then(res => {
           vm.productsData = res.data;
-          console.log("OK");
           loader.hide();
         });
     },
     openModal(p) {
       this.modalProduct = p;
+      let pid = this.modalProduct.productId;
+      let fArr = this.isFavorites;
+      let findFavorite = fArr.find(item => {
+        return item === pid;
+      });
+      findFavorite ? (this.delOrAdd = false) : (this.delOrAdd = true);
       this.modalImg = [];
       let pic1 = this.modalProduct.pic1;
       let pic2 = this.modalProduct.pic2;
@@ -556,10 +613,73 @@ export default {
           this.modalImg[this.n]
         })`;
       }
+    },
+    getFavorites() {
+      const vm = this;
+      if (vm.uid) {
+        vm.$http
+          .get(
+            `https://aqueous-earth-60961.herokuapp.com/favorite/getUserFavorites/${vm.uid}`
+          )
+          .then(res => {
+            vm.userFavorite = res.data;
+          });
+      } else {
+        return false;
+      }
+    },
+    addToFavorite(modalProduct) {
+      const vm = this;
+      let uid = vm.uid;
+      this.delOrAdd = !this.delOrAdd;
+      let storeName = modalProduct.storeName;
+      let productId = modalProduct.productId;
+      let data = {
+        uid,
+        storeName,
+        productId
+      };
+      vm.$http
+        .post(
+          "https://aqueous-earth-60961.herokuapp.com/favorite/addToFavorite",
+          data
+        )
+        .then(res => {
+          if (res.data.success) {
+            vm.getFavorites();
+          }
+        });
+    },
+    delFavorite(item) {
+      const vm = this;
+      this.delOrAdd = !this.delOrAdd;
+      let pid = item.productId;
+      let uid = vm.uid;
+      vm.$http
+        .delete(
+          `https://aqueous-earth-60961.herokuapp.com/favorite/delFavorite/${uid}/${pid}`
+        )
+        .then(res => {
+          if (res.data.success) {
+            vm.getFavorites();
+          }
+        });
+    },
+    getFavorite(item) {
+      const vm = this;
+      let pid = item.productId;
+      vm.$http
+        .get(
+          `https://aqueous-earth-60961.herokuapp.com/favorite/getUserFavorite/${pid}`
+        )
+        .then(res => {
+          vm.openModal(res.data);
+        });
     }
   },
   created() {
     this.getProducts();
+    this.getFavorites();
   }
 };
 </script>

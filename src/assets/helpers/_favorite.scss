@@ -1,0 +1,71 @@
+.favorite {
+  position: fixed;
+  right: 30px;
+  bottom: 30px;
+  background: rgba($color: #e40b0b, $alpha: 0.7);
+  padding: 10px;
+  border-radius: 50%;
+  @include size(50px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+
+  &:hover i {
+    transform: scale(1.1);
+  }
+  .fa-heart {
+    font-size: 25px;
+    color: white;
+    transition: 0.6s;
+    position: relative;
+  }
+  .favoriteLength {
+    position: absolute;
+    color: rgba($color: #e40b0b, $alpha: 0.7);
+    font-weight: 700;
+  }
+}
+
+// favoriteBox
+
+.favoriteBox {
+  @include size(auto, auto);
+  background: rgba($color: #e40b0b, $alpha: 0.7);
+  position: fixed;
+  bottom: 90px;
+  border-radius: 15px;
+  padding: 10px;
+  transition: 0.7s;
+  right: -30%;
+  opacity: 0;
+
+  &.openFavoriteBox {
+    opacity: 1;
+    right: 30px;
+  }
+
+  ul {
+    margin: 0;
+    @include size(100%);
+    text-align: center;
+  }
+
+  li {
+    list-style: none;
+    color: white;
+    font-family: $chFont;
+    font-weight: 100;
+    cursor: pointer;
+    transition: 0.5s;
+    letter-spacing: 1px;
+
+    &:hover {
+      text-shadow: 0px 0px 10px white, 0px 0px 15px white;
+    }
+  }
+
+  .delFavoriteBtn {
+    cursor: pointer;
+  }
+}
