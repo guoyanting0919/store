@@ -1,5 +1,6 @@
 <template>
   <div class="admin">
+    <loading :active.sync="isLoading"></loading>
     <!-- 新增餐點 -->
     <div class="addProduct">
       <form class="addProductForm">
@@ -203,13 +204,14 @@
 
 <script>
 import axios from "axios";
+import Loading from "vue-loading-overlay";
+import "vue-loading-overlay/dist/vue-loading.css";
 export default {
   name: "admin",
   data() {
     return {
       token: this.$cookies.get("token"),
       addOrUpdate: "新增餐點",
-      products: "",
       file1: "",
       file2: "",
       file3: "",
@@ -227,32 +229,19 @@ export default {
       productId: ""
     };
   },
+  components: {
+    Loading
+  },
   methods: {
     getProducts() {
-      const vm = this;
-      let api = `${process.env.VUE_APP_API}products/products`;
-      console.log(api);
-      vm.$http.get(api).then(res => {
-        vm.products = res.data;
-      });
+      this.$store.dispatch("getProducts");
     },
     deleteProduct(key, name) {
-      const vm = this;
-      let id = key;
-      let api = `${process.env.VUE_APP_API}admin/deleteProduct/${id}`;
-      let user = {
-        token: vm.token
-      };
-      let r = confirm(`確認刪除${name}?`);
-      if (r) {
-        vm.$http.post(api, user).then(res => {
-          vm.getProducts();
-        });
-      } else {
-        alert("已取消");
-      }
+      this.$store.dispatch("loadingHandler", true);
+      this.$store.dispatch("deleteProduct", { key, name });
     },
     addProduct() {
+      this.$store.dispatch("loadingHandler", true);
       const vm = this;
       let product = {
         storeName: vm.storeName,
@@ -268,32 +257,21 @@ export default {
         pic3: vm.pic3,
         token: vm.token
       };
-      let config = {
-        withCredentials: true
-      };
-      let api = `${process.env.VUE_APP_API}admin/addProduct`;
-      this.$http.post(api, product, config).then(res => {
-        if (res.data.success) {
-          (vm.pic1 = ""),
-            (vm.pic2 = ""),
-            (vm.pic3 = ""),
-            (vm.storeName = ""),
-            (vm.category = ""),
-            (vm.storeSite = ""),
-            (vm.foodCP = ""),
-            (vm.attitude = ""),
-            (vm.returnVisit = ""),
-            (vm.environment = ""),
-            (vm.storeDetail = ""),
-            (vm.file1 = ""),
-            (vm.file2 = ""),
-            (vm.file3 = ""),
-            vm.getProducts();
-        } else {
-          alert("添加產品失敗");
-          this.$router.push("/home");
-        }
-      });
+      vm.$store.dispatch("addProduct", product);
+      (vm.pic1 = ""),
+        (vm.pic2 = ""),
+        (vm.pic3 = ""),
+        (vm.storeName = ""),
+        (vm.category = ""),
+        (vm.storeSite = ""),
+        (vm.foodCP = ""),
+        (vm.attitude = ""),
+        (vm.returnVisit = ""),
+        (vm.environment = ""),
+        (vm.storeDetail = ""),
+        (vm.file1 = ""),
+        (vm.file2 = ""),
+        (vm.file3 = "");
     },
     uploadImg(num) {
       if (num === "file1") {
@@ -377,6 +355,7 @@ export default {
       vm.productId = product.productId;
     },
     updateProduct() {
+      this.$store.dispatch("loadingHandler", true);
       const vm = this;
       let product = {
         storeName: vm.storeName,
@@ -393,13 +372,16 @@ export default {
         productId: vm.productId,
         token: vm.token
       };
-      let api = `${process.env.VUE_APP_API}admin/updateProduct`;
-      vm.$http.post(api, product).then(res => {
-        if (res.data === "success") {
-          vm.backToAdd();
-          vm.getProducts();
-        }
-      });
+      vm.$store.dispatch("updateProduct", product);
+      vm.backToAdd();
+    }
+  },
+  computed: {
+    products() {
+      return this.$store.state.products;
+    },
+    isLoading() {
+      return this.$store.state.isLoading;
     }
   },
   created() {

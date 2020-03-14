@@ -50,24 +50,7 @@ export default {
         userName,
         password
       };
-      let config = {
-        withCredentials: true
-      };
-      let api = `${process.env.VUE_APP_API}users/login`;
-      this.$http.post(api, user, config).then(res => {
-        if (res.data.message === "success") {
-          // console.log(res);
-          vm.$cookies.set("uid", res.data.uid);
-          vm.$cookies.set("token", res.data.token);
-          vm.$router.push("/home");
-        } else {
-          if (res.data.code === "auth/user-not-found" || "auth/invalid-email") {
-            alert("該帳號尚未註冊");
-          } else if (res.data.code === "auth/wrong-password") {
-            alert("密碼錯誤!");
-          }
-        }
-      });
+      vm.$store.dispatch("loginHandler", user);
     },
     signUpHandler() {
       this.$router.push("/signup");

@@ -1,5 +1,6 @@
 <template>
   <div class="store">
+    <loading :active.sync="isLoading"></loading>
     <!-- coupon -->
     <div class="container-fluid mb-4">
       <div class="row storeBanner">
@@ -14,43 +15,43 @@
     <!-- storeSideBar -->
     <div class="storeSideBar px-5 py-3">
       <div class="sideBar">
-        <a class="sideBarLink" @click.prevent="category='所有餐點'">
+        <a class="sideBarLink" @click.prevent="categoryHandler('所有餐點')">
           <div :class="{'activeSideBar':category==='所有餐點'}" class="sideBarBox">
             <span class="sideBarChTitle">所有餐點</span>
             <span class="sideBarEnTitle">ALL</span>
           </div>
         </a>
-        <a class="sideBarLink" @click.prevent="category='台灣小吃'">
+        <a class="sideBarLink" @click.prevent="categoryHandler('台灣小吃')">
           <div :class="{'activeSideBar':category==='台灣小吃'}" class="sideBarBox">
             <span class="sideBarChTitle">台灣小吃</span>
             <span class="sideBarEnTitle">SNAKE</span>
           </div>
         </a>
-        <a class="sideBarLink" @click.prevent="category='甜點/飲料'">
+        <a class="sideBarLink" @click.prevent="categoryHandler('甜點/飲料')">
           <div :class="{'activeSideBar':category==='甜點/飲料'}" class="sideBarBox">
             <span class="sideBarChTitle">甜點/飲料</span>
             <span class="sideBarEnTitle">DESSERT</span>
           </div>
         </a>
-        <a class="sideBarLink" @click.prevent="category='精緻燒烤'">
+        <a class="sideBarLink" @click.prevent="categoryHandler('精緻燒烤')">
           <div :class="{'activeSideBar':category==='精緻燒烤'}" class="sideBarBox">
             <span class="sideBarChTitle">精緻燒烤</span>
             <span class="sideBarEnTitle">ROAST</span>
           </div>
         </a>
-        <a class="sideBarLink" @click.prevent="category='定食'">
+        <a class="sideBarLink" @click.prevent="categoryHandler('定食')">
           <div :class="{'activeSideBar':category==='定食'}" class="sideBarBox">
             <span class="sideBarChTitle">定食</span>
             <span class="sideBarEnTitle">SETMEAL</span>
           </div>
         </a>
-        <a class="sideBarLink" @click.prevent="category='小火鍋'">
+        <a class="sideBarLink" @click.prevent="categoryHandler('小火鍋')">
           <div :class="{'activeSideBar':category==='小火鍋'}" class="sideBarBox">
             <span class="sideBarChTitle">小火鍋</span>
             <span class="sideBarEnTitle">HOTPOT</span>
           </div>
         </a>
-        <a class="sideBarLink" @click.prevent="category='早午餐'">
+        <a class="sideBarLink" @click.prevent="categoryHandler('早午餐')">
           <div :class="{'activeSideBar':category==='早午餐'}" class="sideBarBox">
             <span class="sideBarChTitle">早午餐</span>
             <span class="sideBarEnTitle">BRUNCH</span>
@@ -506,37 +507,35 @@
 </template>
 
 <script>
+import Loading from "vue-loading-overlay";
+import "vue-loading-overlay/dist/vue-loading.css";
 import $ from "jquery";
 export default {
   name: "store",
   data() {
     return {
-      productsData: "",
-      category: "所有餐點",
       modalProduct: "",
       modalImg: [],
       n: 0,
       uid: $cookies.get("uid"),
-      userFavorite: "",
+      // userFavorite: "",
       openFavoriteBox: false,
       delOrAdd: ""
     };
   },
+  components: {
+    Loading
+  },
   computed: {
+    isLoading() {
+      return this.$store.state.isLoading;
+    },
+    userFavorite() {
+      return this.$store.state.userFavorite;
+    },
     productsFilter() {
-      const vm = this;
-      let arryProducts = Object.values(vm.productsData);
-      let data;
-      let category = vm.category;
-      if (category === "所有餐點") {
-        data = arryProducts;
-      } else {
-        data = arryProducts.filter(product => {
-          return product.category === category;
-        });
-      }
-      data.reverse();
-      return data;
+      this.$store.dispatch("setProductFilter");
+      return this.$store.state.productsFilter;
     },
     userFavoriteFilter() {
       let data = Object.values(this.userFavorite);
@@ -553,17 +552,15 @@ export default {
         return item.productId;
       });
       return pArr;
+    },
+    category() {
+      return this.$store.state.category;
     }
   },
   methods: {
     getProducts() {
       const vm = this;
-      let loader = vm.$loading.show();
-      let api = `${process.env.VUE_APP_API}products/products`;
-      vm.$http.get(api).then(res => {
-        vm.productsData = res.data;
-        loader.hide();
-      });
+      vm.$store.dispatch("getProducts");
     },
     openModal(p) {
       this.modalProduct = p;
@@ -614,15 +611,7 @@ export default {
       }
     },
     getFavorites() {
-      const vm = this;
-      if (vm.uid) {
-        let api = `${process.env.VUE_APP_API}favorite/getUserFavorites/${vm.uid}`;
-        vm.$http.get(api).then(res => {
-          vm.userFavorite = res.data;
-        });
-      } else {
-        return false;
-      }
+      this.$store.dispatch("getFavorites");
     },
     addToFavorite(modalProduct) {
       const vm = this;
@@ -661,6 +650,9 @@ export default {
       vm.$http.get(api).then(res => {
         vm.openModal(res.data);
       });
+    },
+    categoryHandler(category) {
+      this.$store.dispatch("categoryHandler", category);
     }
   },
   created() {
