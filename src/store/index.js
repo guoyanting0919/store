@@ -16,7 +16,10 @@ export default new Vuex.Store({
     isLoading: false,
     category: '所有餐點',
     userFavorite: '',
-    productsFilter: ''
+    productsFilter: '',
+    modalProduct: '',
+    delOrAdd: '',
+    modalImg: []
   },
   actions: {
     //loading
@@ -120,6 +123,46 @@ export default new Vuex.Store({
     },
     setProductFilter(context, payload) {
       context.commit('PRODUCTS_FILTER', payload);
+    },
+    openModal(context, payload) {
+      context.commit('MODAL_PRODUCT', payload);
+    },
+    setDelOrAdd(context, payload) {
+      context.commit(SET_DEL_OR_ADD, payload);
+    },
+    addToFavorite(context, payload) {
+      context.commit('LOADING', true);
+      let uid = context.state.uid;
+      let storeName = context.state.modalProduct.storeName;
+      let productId = context.state.modalProduct.productId;
+      let data = {
+        uid,
+        storeName,
+        productId
+      };
+      let api = `${process.env.VUE_APP_API}favorite/addToFavorite`;
+      axios.post(api, data).then(res => {
+        if (res.data.success) {
+          context.dispatch('getFavorites');
+          context.commit('LOADING', false);
+          context.commit('SET_DEL_OR_ADD', false);
+        }
+        context.commit('LOADING', false);
+      });
+    },
+    delFavorite(context, payload) {
+      context.commit('LOADING', true);
+      let pid = payload.productId;
+      let uid = context.state.uid;
+      let api = `${process.env.VUE_APP_API}favorite/delFavorite/${uid}/${pid}`;
+      axios.delete(api).then(res => {
+        if (res.data.success) {
+          context.dispatch('getFavorites');
+          context.commit('SET_DEL_OR_ADD', true);
+          context.commit('LOADING', false);
+        }
+        context.commit('LOADING', false);
+      });
     }
   },
   mutations: {
@@ -148,6 +191,28 @@ export default new Vuex.Store({
       }
       data.reverse();
       state.productsFilter = data;
+    },
+    MODAL_PRODUCT(state, { p, f }) {
+      state.modalProduct = p;
+      let pid = state.modalProduct.productId;
+      let fArr = f;
+      let findFavorite = fArr.find(item => {
+        return item === pid;
+      });
+      findFavorite ? (state.delOrAdd = false) : (state.delOrAdd = true);
+      state.modalImg = [];
+      let pic1 = state.modalProduct.pic1;
+      let pic2 = state.modalProduct.pic2;
+      let pic3 = state.modalProduct.pic3;
+      let arr = [pic1, pic2, pic3];
+      arr.forEach(item => {
+        if (item) {
+          state.modalImg.push(item);
+        }
+      });
+    },
+    SET_DEL_OR_ADD(state, payload) {
+      state.delOrAdd = payload;
     }
   },
   modules: {}

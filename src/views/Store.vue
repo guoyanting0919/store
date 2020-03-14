@@ -283,19 +283,32 @@
           <div class="modal-body">
             <div class="container">
               <div class="row">
-                <div class="col-5">
-                  <div
-                    ref="modalImg"
-                    class="modalImg"
-                    :style="{backgroundImage:`url(${modalProduct.pic1})`}"
-                  >
-                    <button class="nextPic" v-if="modalProduct.pic2" @click="nextPic">
-                      <i class="fas fa-chevron-right"></i>
-                    </button>
-                    <button class="prePic" v-if="modalProduct.pic2" @click="prePic">
-                      <i class="fas fa-chevron-right"></i>
-                    </button>
+                <div class="col-5 p-0 imgHidden">
+                  <div ref="imgMove" class="imgMove" :style="{'width':imgHiddenWidth + 'px'}">
+                    <div
+                      ref="modalImg"
+                      class="modalImg"
+                      :style="{backgroundImage:`url(${modalProduct.pic1})`}"
+                    ></div>
+                    <div
+                      ref="modalImg"
+                      class="modalImg"
+                      v-if="modalProduct.pic2"
+                      :style="{backgroundImage:`url(${modalProduct.pic2})`}"
+                    ></div>
+                    <div
+                      ref="modalImg"
+                      class="modalImg"
+                      v-if="modalProduct.pic3"
+                      :style="{backgroundImage:`url(${modalProduct.pic3})`}"
+                    ></div>
                   </div>
+                  <button class="nextPic" v-if="modalProduct.pic2" @click="nextPic">
+                    <i class="fas fa-chevron-right"></i>
+                  </button>
+                  <button class="prePic" v-if="modalProduct.pic2" @click="prePic">
+                    <i class="fas fa-chevron-right"></i>
+                  </button>
                 </div>
                 <div class="col-7">
                   <div class="productsScore mt-2">
@@ -514,13 +527,10 @@ export default {
   name: "store",
   data() {
     return {
-      modalProduct: "",
-      modalImg: [],
       n: 0,
       uid: $cookies.get("uid"),
-      // userFavorite: "",
       openFavoriteBox: false,
-      delOrAdd: ""
+      x: 0
     };
   },
   components: {
@@ -529,6 +539,19 @@ export default {
   computed: {
     isLoading() {
       return this.$store.state.isLoading;
+    },
+    modalImg() {
+      return this.$store.state.modalImg;
+    },
+    imgHiddenWidth() {
+      let n = this.modalImg.length * 300;
+      return n;
+    },
+    modalProduct() {
+      return this.$store.state.modalProduct;
+    },
+    delOrAdd() {
+      return this.$store.state.delOrAdd;
     },
     userFavorite() {
       return this.$store.state.userFavorite;
@@ -563,85 +586,40 @@ export default {
       vm.$store.dispatch("getProducts");
     },
     openModal(p) {
-      this.modalProduct = p;
-      let pid = this.modalProduct.productId;
-      let fArr = this.isFavorites;
-      let findFavorite = fArr.find(item => {
-        return item === pid;
-      });
-      findFavorite ? (this.delOrAdd = false) : (this.delOrAdd = true);
-      this.modalImg = [];
-      let pic1 = this.modalProduct.pic1;
-      let pic2 = this.modalProduct.pic2;
-      let pic3 = this.modalProduct.pic3;
-      let arr = [pic1, pic2, pic3];
-      // this.modalImg = [pic1, pic2, pic3];
-      arr.forEach(item => {
-        if (item) {
-          this.modalImg.push(item);
-        }
-      });
+      this.$refs.imgMove.style.transform = `translateX(0)`;
+      this.x = 0;
+      let f = this.isFavorites;
+      this.$store.dispatch("openModal", { p, f });
       $("#productModal").modal("show");
     },
+    addToFavorite(modalProduct) {
+      this.$store.dispatch("addToFavorite");
+    },
+    delFavorite(item) {
+      this.$store.dispatch("delFavorite", item);
+    },
     nextPic() {
-      let arrLength = this.modalImg.length;
-      this.n = this.n + 1;
-
-      if (this.n < arrLength) {
-        this.$refs.modalImg.style.backgroundImage = `url(${
-          this.modalImg[this.n]
-        })`;
+      let n = this.imgHiddenWidth * -1;
+      this.x = this.x - 300;
+      if (this.x > n) {
+        this.$refs.imgMove.style.transform = `translateX(${this.x}px)`;
       } else {
-        this.n = 0;
-        this.$refs.modalImg.style.backgroundImage = `url(${this.modalImg[0]})`;
+        this.x = 0;
+        this.$refs.imgMove.style.transform = `translateX(${this.x}px)`;
       }
     },
     prePic() {
-      let arrLength = this.modalImg.length;
-      if (this.n === 0) {
-        this.n = arrLength - 1;
-        this.$refs.modalImg.style.backgroundImage = `url(${
-          this.modalImg[this.n]
-        })`;
+      let n = this.imgHiddenWidth * -1;
+      this.x = this.x + 300;
+      if (this.x > 0) {
+        this.x = n + 300;
+        this.$refs.imgMove.style.transform = `translateX(${this.x}px)`;
       } else {
-        this.n = this.n - 1;
-        this.$refs.modalImg.style.backgroundImage = `url(${
-          this.modalImg[this.n]
-        })`;
+        this.$refs.imgMove.style.transform = `translateX(${this.x}px)`;
       }
     },
     getFavorites() {
       this.$store.dispatch("getFavorites");
-    },
-    addToFavorite(modalProduct) {
-      const vm = this;
-      let uid = vm.uid;
-      this.delOrAdd = !this.delOrAdd;
-      let storeName = modalProduct.storeName;
-      let productId = modalProduct.productId;
-      let data = {
-        uid,
-        storeName,
-        productId
-      };
-      let api = `${process.env.VUE_APP_API}favorite/addToFavorite`;
-      vm.$http.post(api, data).then(res => {
-        if (res.data.success) {
-          vm.getFavorites();
-        }
-      });
-    },
-    delFavorite(item) {
-      const vm = this;
-      this.delOrAdd = !this.delOrAdd;
-      let pid = item.productId;
-      let uid = vm.uid;
-      let api = `${process.env.VUE_APP_API}favorite/delFavorite/${uid}/${pid}`;
-      vm.$http.delete(api).then(res => {
-        if (res.data.success) {
-          vm.getFavorites();
-        }
-      });
     },
     getFavorite(item) {
       const vm = this;

@@ -6,6 +6,21 @@
     line-height: 1.9;
     overflow: auto;
   }
+
+  .imgHidden {
+    overflow: hidden;
+    max-width: 300px;
+    border-radius: 8px;
+    height: 300px;
+  }
+
+  .imgMove {
+    display: flex;
+    // width: 900px;
+    overflow: hidden;
+    transition: 1s;
+  }
+
   .modalImg {
     background-color: wheat;
     @include size(300px);
