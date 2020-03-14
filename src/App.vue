@@ -78,6 +78,9 @@ export default {
     signInHandler() {
       this.$router.push("/login");
     }
+  },
+  created() {
+    console.log(process.env.VUE_APP_API, process.env.VUE_APP_ADMIN_MAIL);
   }
 };
 </script>
