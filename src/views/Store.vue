@@ -559,12 +559,11 @@ export default {
     getProducts() {
       const vm = this;
       let loader = vm.$loading.show();
-      vm.$http
-        .get("https://aqueous-earth-60961.herokuapp.com/products/products")
-        .then(res => {
-          vm.productsData = res.data;
-          loader.hide();
-        });
+      let api = `${process.env.VUE_APP_API}products/products`;
+      vm.$http.get(api).then(res => {
+        vm.productsData = res.data;
+        loader.hide();
+      });
     },
     openModal(p) {
       this.modalProduct = p;
@@ -617,13 +616,10 @@ export default {
     getFavorites() {
       const vm = this;
       if (vm.uid) {
-        vm.$http
-          .get(
-            `https://aqueous-earth-60961.herokuapp.com/favorite/getUserFavorites/${vm.uid}`
-          )
-          .then(res => {
-            vm.userFavorite = res.data;
-          });
+        let api = `${process.env.VUE_APP_API}favorite/getUserFavorites/${vm.uid}`;
+        vm.$http.get(api).then(res => {
+          vm.userFavorite = res.data;
+        });
       } else {
         return false;
       }
@@ -639,42 +635,32 @@ export default {
         storeName,
         productId
       };
-      vm.$http
-        .post(
-          "https://aqueous-earth-60961.herokuapp.com/favorite/addToFavorite",
-          data
-        )
-        .then(res => {
-          if (res.data.success) {
-            vm.getFavorites();
-          }
-        });
+      let api = `${process.env.VUE_APP_API}favorite/addToFavorite`;
+      vm.$http.post(api, data).then(res => {
+        if (res.data.success) {
+          vm.getFavorites();
+        }
+      });
     },
     delFavorite(item) {
       const vm = this;
       this.delOrAdd = !this.delOrAdd;
       let pid = item.productId;
       let uid = vm.uid;
-      vm.$http
-        .delete(
-          `https://aqueous-earth-60961.herokuapp.com/favorite/delFavorite/${uid}/${pid}`
-        )
-        .then(res => {
-          if (res.data.success) {
-            vm.getFavorites();
-          }
-        });
+      let api = `${process.env.VUE_APP_API}favorite/delFavorite/${uid}/${pid}`;
+      vm.$http.delete(api).then(res => {
+        if (res.data.success) {
+          vm.getFavorites();
+        }
+      });
     },
     getFavorite(item) {
       const vm = this;
       let pid = item.productId;
-      vm.$http
-        .get(
-          `https://aqueous-earth-60961.herokuapp.com/favorite/getUserFavorite/${pid}`
-        )
-        .then(res => {
-          vm.openModal(res.data);
-        });
+      let api = `${process.env.VUE_APP_API}favorite/getUserFavorite/${pid}`;
+      vm.$http.get(api).then(res => {
+        vm.openModal(res.data);
+      });
     }
   },
   created() {
