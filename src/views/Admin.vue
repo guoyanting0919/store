@@ -374,6 +374,9 @@ export default {
       };
       vm.$store.dispatch("updateProduct", product);
       vm.backToAdd();
+    },
+    setToken() {
+      this.$store.dispatch("setToken");
     }
   },
   computed: {
@@ -386,6 +389,7 @@ export default {
   },
   created() {
     this.getProducts();
+    this.setToken();
   }
 };
 </script>

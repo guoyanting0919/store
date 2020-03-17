@@ -1,5 +1,6 @@
 <template>
   <div class="about">
+    <loading :active.sync="isLoading"></loading>
     <!-- banner -->
     <div class="banner">
       <div class="bannerImg">
@@ -310,8 +311,18 @@
 
 <script>
 import $ from "jquery";
+import Loading from "vue-loading-overlay";
+import "vue-loading-overlay/dist/vue-loading.css";
 
 export default {
+  components: {
+    Loading
+  },
+  computed: {
+    isLoading() {
+      return this.$store.state.isLoading;
+    }
+  },
   mounted() {
     setTimeout(() => {
       this.$refs.scrollDown.style.opacity = 0.8;
@@ -359,6 +370,12 @@ export default {
     toAdmin() {
       this.$router.push("/admin");
     }
+  },
+  created() {
+    this.$store.dispatch("loadingHandler", true);
+    setTimeout(() => {
+      this.$store.dispatch("loadingHandler", false);
+    }, 1000);
   }
 };
 </script>

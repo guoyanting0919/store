@@ -18,10 +18,10 @@
           <i class="fas fa-shopping-cart"></i>
           <span class="navBarItem">美食街</span>
         </router-link>
-        <router-link class="responsiveList" @click.native="listShow=false" to="/contact">
+        <!-- <router-link class="responsiveList" @click.native="listShow=false" to="/contact">
           <i class="far fa-envelope"></i>
           <span class="navBarItem">聯絡我們</span>
-        </router-link>
+        </router-link>-->
       </div>
       <ul class="navLists">
         <div class="burger">
@@ -39,10 +39,10 @@
           <i class="fas fa-shopping-cart"></i>
           <span class="navBarItem">美食街</span>
         </router-link>
-        <router-link class="navList" to="/contact">
+        <!-- <router-link class="navList" to="/contact">
           <i class="far fa-envelope"></i>
           <span class="navBarItem">聯絡我們</span>
-        </router-link>
+        </router-link>-->
       </ul>
       <div class="loginBox">
         <div>

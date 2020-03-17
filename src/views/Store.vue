@@ -631,10 +631,14 @@ export default {
     },
     categoryHandler(category) {
       this.$store.dispatch("categoryHandler", category);
+    },
+    setUid() {
+      this.$store.dispatch("setUid");
     }
   },
   created() {
     this.getProducts();
+    this.setUid();
     this.getFavorites();
   }
 };

@@ -49,6 +49,27 @@
     margin: 0;
     @include size(100%);
     text-align: center;
+    max-height: 300px;
+    overflow: auto;
+
+    &::-webkit-scrollbar {
+      width: 5px;
+    }
+    //"&"是必須與上一層同層級
+    //-webkit-scrollbar : 整體的scrollbar樣式
+
+    &::-webkit-scrollbar-thumb {
+      -webkit-border-radius: 4px;
+      border-radius: 4px;
+      background: rgb(255, 255, 255);
+    }
+    //bar的樣式
+
+    &::-webkit-scrollbar-track {
+      -webkit-border-radius: 10px;
+      border-radius: 10px;
+      margin: 15px 0;
+    }
   }
 
   li {

@@ -10,8 +10,8 @@ Vue.use(VueCookies);
 export default new Vuex.Store({
   strict: true,
   state: {
-    token: VueCookies.get('token'),
-    uid: VueCookies.get('uid'),
+    token: '',
+    uid: '',
     products: '',
     isLoading: false,
     category: '所有餐點',
@@ -163,6 +163,14 @@ export default new Vuex.Store({
         }
         context.commit('LOADING', false);
       });
+    },
+    setUid(context, payload) {
+      let uid = VueCookies.get('uid');
+      context.commit('UID', uid);
+    },
+    setToken(context, payload) {
+      let token = VueCookies.get('token');
+      context.commit('TOKEN', token);
     }
   },
   mutations: {
@@ -213,6 +221,12 @@ export default new Vuex.Store({
     },
     SET_DEL_OR_ADD(state, payload) {
       state.delOrAdd = payload;
+    },
+    UID(state, payload) {
+      state.uid = payload;
+    },
+    TOKEN(state, payload) {
+      state.token = payload;
     }
   },
   modules: {}

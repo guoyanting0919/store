@@ -14,7 +14,7 @@
       >
         <div class="content contentTxtBlack">
           <h2>早午餐</h2>
-          <p>
+          <p @click="toStore">
             BRUNCH
             <i class="fa fa-angle-double-right"></i>
           </p>
@@ -27,7 +27,7 @@
       >
         <div class="content contentTxtWhite">
           <h2>定食</h2>
-          <p>
+          <p @click="toStore">
             MEALS
             <i class="fa fa-angle-double-right"></i>
           </p>
@@ -40,7 +40,7 @@
       >
         <div class="content contentTxtWhite">
           <h2>燒烤</h2>
-          <p>
+          <p @click="toStore">
             ROAST
             <i class="fa fa-angle-double-right"></i>
           </p>
@@ -53,7 +53,7 @@
       >
         <div class="content contentTxtWhite">
           <h2>小吃</h2>
-          <p>
+          <p @click="toStore">
             SNAKE
             <i class="fa fa-angle-double-right"></i>
           </p>
@@ -66,7 +66,7 @@
       >
         <div class="content contentTxtBlack">
           <h2>甜點</h2>
-          <p>
+          <p @click="toStore">
             DESSERT
             <i class="fa fa-angle-double-right"></i>
           </p>
@@ -109,6 +109,9 @@ export default {
       } else {
         this.activeSlide = txt;
       }
+    },
+    toStore() {
+      this.$router.push("/store");
     }
   },
   created() {
